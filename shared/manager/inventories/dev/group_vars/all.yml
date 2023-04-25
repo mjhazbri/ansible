@@ -1,0 +1,4 @@
+PACKAGES_COMMON:
+  - whois
+  - python3
+  - tree

@@ -1,0 +1,3 @@
+VARIABLE: "common"
+PACKAGES_COMMON:
+  - python3

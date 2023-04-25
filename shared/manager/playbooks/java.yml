@@ -1,0 +1,24 @@
+- name: Install Oracle Java
+  hosts: server
+  become: true
+  roles:
+    - oracle-java
+    
+  # $ ansible-playbook -i hosts java.yml
+
+
+
+  ---
+- name: Install Java package (Ubuntu/Debian)
+  apt:
+    name: "{{ java_apt_package }}"
+    state: present
+    update_cache: yes
+  when: ansible_os_family == 'Debian'
+
+- name: Install Java package (CentOS/RHEL)
+  yum:
+    name: "{{ java_yum_package }}"
+    state: present
+    update_cache: yes
+  when: ansible_os_family == 'RedHat'
