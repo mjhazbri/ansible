@@ -1,0 +1,24 @@
+---
+- name: concat
+  ansible.builtin.set_fact:
+      user : "{{ username }}"
+      uid : "{{ uid }}"
+      group : "{{ groupname }}"
+      passwd : "{{ userpasswd }}"
+- name: debug
+  ansible.builtin.debug:
+      var: uid,user,passwd,group 
+
+- name: Manage user
+  ansible.builtin.user:
+    name: "{{ username }}"
+    uid: "{{ uid }}"
+    password: "{{ userpasswd }}"
+    group: "{{ groupname }}"
+    groups: sudo
+    append: yes
+    shell: /bin/bash
+    system: true
+    generate_ssh_key: yes
+    ssh_key_bits: 2048
+    ssh_key_file: .ssh/id_rsa

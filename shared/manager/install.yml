@@ -1,0 +1,16 @@
+---
+
+- hosts: all
+  gather_facts: false
+  become: true
+  pre_tasks:
+   - include_tasks: tasks/load-vars.yml
+  roles:
+    - init-group
+    - init-users
+    - init-packages
+
+- hosts: servers
+  become: true
+  roles:
+    - init-service

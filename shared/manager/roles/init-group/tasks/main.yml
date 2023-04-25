@@ -1,0 +1,16 @@
+---
+- name: concat
+  ansible.builtin.set_fact:
+      group : "{{ groupname }}"
+      gid : "{{ gid }}"
+
+- name: debug
+  ansible.builtin.debug:
+      var: group , gid
+
+- name: Manage group with correct gid
+  ansible.builtin.group:
+    name: "{{ group }}"
+    state: present
+    gid: "{{ gid }}"
+    

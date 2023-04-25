@@ -1,0 +1,15 @@
+- name: concat
+  ansible.builtin.set_fact:
+      packages: "{{PACKAGES_SERVER | default ([]) + PACKAGES_GROUP | default ([]) + PACKAGES_BACK | default ([]) + PACKAGES_COMMON}}"
+- name: debug
+  ansible.builtin.debug:
+      var: packages
+
+- name: Update the repository cache and update packages
+  ansible.builtin.apt:
+    update_cache: yes
+    upgrade: full
+
+- name: Install a list of packages
+  ansible.builtin.apt:
+    pkg: "{{ packages }}"

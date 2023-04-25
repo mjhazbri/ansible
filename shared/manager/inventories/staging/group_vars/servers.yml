@@ -1,0 +1,3 @@
+VARIABLE: "server"
+PACKAGES_GROUP:
+  - jdk
