@@ -1,0 +1,3432 @@
+
+PLAY [localhost] ***************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [localhost]
+
+TASK [init-config : include_tasks] *********************************************
+included: /home/vagrant/manager/roles/init-config/tasks/load-git-vars.yml for localhost
+
+TASK [init-config : include_vars] **********************************************
+ok: [localhost]
+
+TASK [init-config : include_tasks] *********************************************
+included: /home/vagrant/manager/roles/init-config/tasks/clone-git-config.yml for localhost
+
+TASK [init-config : Delete config folder if exists] ****************************
+changed: [localhost]
+
+TASK [init-config : Create config folder if not exists] ************************
+changed: [localhost]
+
+TASK [init-config : Clone config repository] ***********************************
+changed: [localhost]
+
+TASK [init-config : include_tasks] *********************************************
+included: /home/vagrant/manager/roles/init-config/tasks/load-microservices-config.yml for localhost
+
+TASK [init-config : include_vars] **********************************************
+ok: [localhost]
+
+TASK [init-config : include_tasks] *********************************************
+included: /home/vagrant/manager/roles/init-config/tasks/load-microservice-config.yml for localhost => (item={'key': 'service-registration-and-discovery-client', 'value': {'app_name': 'service-registration-and-discovery-client', 'type': 'front', 'number': 2, 'app_vesrion': '0.0.1-SNAPSHOT', 'artifact_id': 'service-registration-and-discovery-client', 'group_id': 'com.example'}})
+included: /home/vagrant/manager/roles/init-config/tasks/load-microservice-config.yml for localhost => (item={'key': 'service-registration-and-discovery-service', 'value': {'app_name': 'service-registration-and-discovery-service', 'type': 'back', 'number': 1, 'app_vesrion': '0.0.1-SNAPSHOT', 'artifact_id': 'service-registration-and-discovery-service', 'group_id': 'com.example'}})
+
+TASK [init-config : include_vars] **********************************************
+ok: [localhost]
+
+TASK [init-config : lineinfile] ************************************************
+changed: [localhost] => (item=springboot_backend_name)
+changed: [localhost] => (item=client_param_one)
+changed: [localhost] => (item=client_param_two)
+
+TASK [init-config : replace] ***************************************************
+changed: [localhost]
+
+TASK [init-config : include_vars] **********************************************
+ok: [localhost]
+
+TASK [init-config : lineinfile] ************************************************
+changed: [localhost] => (item=service_param_one)
+changed: [localhost] => (item=service_param_two)
+
+TASK [init-config : replace] ***************************************************
+changed: [localhost]
+
+TASK [init-config : include_tasks] *********************************************
+included: /home/vagrant/manager/roles/init-config/tasks/load-microservice-install.yml for localhost => (item={'key': 'service-registration-and-discovery-client', 'value': {'app_name': 'service-registration-and-discovery-client', 'type': 'front', 'number': 2, 'app_vesrion': '0.0.1-SNAPSHOT', 'artifact_id': 'service-registration-and-discovery-client', 'group_id': 'com.example'}})
+included: /home/vagrant/manager/roles/init-config/tasks/load-microservice-install.yml for localhost => (item={'key': 'service-registration-and-discovery-service', 'value': {'app_name': 'service-registration-and-discovery-service', 'type': 'back', 'number': 1, 'app_vesrion': '0.0.1-SNAPSHOT', 'artifact_id': 'service-registration-and-discovery-service', 'group_id': 'com.example'}})
+
+TASK [init-config : include_vars] **********************************************
+ok: [localhost]
+
+TASK [init-config : set_fact] **************************************************
+ok: [localhost]
+
+TASK [init-config : lineinfile] ************************************************
+changed: [localhost]
+
+TASK [init-config : lineinfile] ************************************************
+changed: [localhost]
+
+TASK [init-config : lineinfile] ************************************************
+changed: [localhost]
+
+TASK [init-config : lineinfile] ************************************************
+changed: [localhost]
+
+TASK [init-config : lineinfile] ************************************************
+changed: [localhost]
+
+TASK [init-config : lineinfile] ************************************************
+changed: [localhost]
+
+TASK [init-config : lineinfile] ************************************************
+changed: [localhost]
+
+TASK [init-config : lineinfile] ************************************************
+changed: [localhost]
+
+TASK [init-config : lineinfile] ************************************************
+changed: [localhost]
+
+TASK [init-config : lineinfile] ************************************************
+changed: [localhost]
+
+TASK [init-config : replace] ***************************************************
+changed: [localhost]
+
+TASK [init-config : include_vars] **********************************************
+ok: [localhost]
+
+TASK [init-config : set_fact] **************************************************
+ok: [localhost]
+
+TASK [init-config : lineinfile] ************************************************
+changed: [localhost]
+
+TASK [init-config : lineinfile] ************************************************
+changed: [localhost]
+
+TASK [init-config : lineinfile] ************************************************
+changed: [localhost]
+
+TASK [init-config : lineinfile] ************************************************
+changed: [localhost]
+
+TASK [init-config : lineinfile] ************************************************
+changed: [localhost]
+
+TASK [init-config : lineinfile] ************************************************
+changed: [localhost]
+
+TASK [init-config : lineinfile] ************************************************
+changed: [localhost]
+
+TASK [init-config : lineinfile] ************************************************
+changed: [localhost]
+
+TASK [init-config : lineinfile] ************************************************
+changed: [localhost]
+
+TASK [init-config : lineinfile] ************************************************
+changed: [localhost]
+
+TASK [init-config : replace] ***************************************************
+changed: [localhost]
+
+TASK [init-config : include_tasks] *********************************************
+included: /home/vagrant/manager/roles/init-config/tasks/load-microservices-global-config.yml for localhost
+
+TASK [init-config : include_vars] **********************************************
+ok: [localhost]
+
+TASK [init-config : include_tasks] *********************************************
+included: /home/vagrant/manager/roles/init-config/tasks/load-microservice-global-config.yml for localhost => (item={'key': 'service-registration-and-discovery-client', 'value': {'ports': [8080, 8081], 'config_file_name_tpl': 'app.config.j2', 'properties_file_name_tpl': 'app.properties.j2', 'properties_file_name': 'application.properties', 'dmp_sub_dir': '/dmp', 'tmp_sub_dir': '/tmp', 'pid_sub_dir': '/pid', 'data_sub_dir': '/data', 'log_sub_dir': '/log', 'config_sub_dir': '/config', 'client_param_two': 'otherServer', 'client_param_one': 'server', 'springboot_backend_name': 'back', 'app_name': 'service-registration-and-discovery-client', 'type': 'front', 'number': 2, 'app_vesrion': '0.0.1-SNAPSHOT', 'artifact_id': 'service-registration-and-discovery-client', 'group_id': 'com.example'}})
+included: /home/vagrant/manager/roles/init-config/tasks/load-microservice-global-config.yml for localhost => (item={'key': 'service-registration-and-discovery-service', 'value': {'ports': [], 'config_file_name_tpl': 'app.config.j2', 'properties_file_name_tpl': 'app.properties.j2', 'properties_file_name': 'application.properties', 'dmp_sub_dir': '/dmp', 'tmp_sub_dir': '/tmp', 'pid_sub_dir': '/pid', 'data_sub_dir': '/data', 'log_sub_dir': '/log', 'config_sub_dir': '/config', 'service_param_two': 'otherServer', 'service_param_one': 'server', 'app_name': 'service-registration-and-discovery-service', 'type': 'back', 'number': 1, 'app_vesrion': '0.0.1-SNAPSHOT', 'artifact_id': 'service-registration-and-discovery-service', 'group_id': 'com.example'}})
+
+TASK [init-config : include_vars] **********************************************
+ok: [localhost]
+
+TASK [init-config : lineinfile] ************************************************
+changed: [localhost] => (item=app_dir)
+
+TASK [init-config : replace] ***************************************************
+changed: [localhost]
+
+TASK [init-config : include_vars] **********************************************
+ok: [localhost]
+
+TASK [init-config : lineinfile] ************************************************
+changed: [localhost] => (item=app_dir)
+
+TASK [init-config : replace] ***************************************************
+changed: [localhost]
+
+TASK [init-config : include_vars] **********************************************
+ok: [localhost]
+
+PLAY [microservice] ************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+
+TASK [include_role : install-dir] **********************************************
+
+TASK [install-dir : Create microservice directories service-registration-and-discovery-client  on  /opt/microservices] ***
+included: /home/vagrant/manager/roles/install-dir/tasks/create_dir.yml for s01vl9995247.fr.net.intra, s01vl9995271.fr.net.intra, s01vl9995270.fr.net.intra, s01vl9995272.fr.net.intra => (item=0)
+included: /home/vagrant/manager/roles/install-dir/tasks/create_dir.yml for s01vl9995247.fr.net.intra, s01vl9995271.fr.net.intra, s01vl9995270.fr.net.intra, s01vl9995272.fr.net.intra => (item=1)
+
+TASK [install-dir : Set microservice service-registration-and-discovery-client0 directory] ***
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+
+TASK [install-dir : Create config microservice directory service-registration-and-discovery-client0] ***
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+
+TASK [install-dir : Create log microservice directory service-registration-and-discovery-client0] ***
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+
+TASK [install-dir : Create data microservice directory service-registration-and-discovery-client0] ***
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+
+TASK [install-dir : Create pid microservice directory service-registration-and-discovery-client0] ***
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+
+TASK [install-dir : Create tmp microservice directory service-registration-and-discovery-client0] ***
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+
+TASK [install-dir : Create dmp microservice directory service-registration-and-discovery-client0] ***
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995271.fr.net.intra]
+
+TASK [install-dir : Set microservice service-registration-and-discovery-client1 directory] ***
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+
+TASK [install-dir : Create config microservice directory service-registration-and-discovery-client1] ***
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+changed: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+
+TASK [install-dir : Create log microservice directory service-registration-and-discovery-client1] ***
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+changed: [s01vl9995271.fr.net.intra]
+
+TASK [install-dir : Create data microservice directory service-registration-and-discovery-client1] ***
+ok: [s01vl9995247.fr.net.intra]
+changed: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+
+TASK [install-dir : Create pid microservice directory service-registration-and-discovery-client1] ***
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995247.fr.net.intra]
+changed: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+
+TASK [install-dir : Create tmp microservice directory service-registration-and-discovery-client1] ***
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+changed: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+
+TASK [install-dir : Create dmp microservice directory service-registration-and-discovery-client1] ***
+ok: [s01vl9995247.fr.net.intra]
+changed: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+
+TASK [install-dir : Create microservice directories service-registration-and-discovery-service  on  /opt/microservices] ***
+included: /home/vagrant/manager/roles/install-dir/tasks/create_dir.yml for s01vl9995247.fr.net.intra, s01vl9995271.fr.net.intra, s01vl9995270.fr.net.intra, s01vl9995272.fr.net.intra => (item=0)
+
+TASK [install-dir : Set microservice service-registration-and-discovery-service0 directory] ***
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+
+TASK [install-dir : Create config microservice directory service-registration-and-discovery-service0] ***
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995247.fr.net.intra]
+changed: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+
+TASK [install-dir : Create log microservice directory service-registration-and-discovery-service0] ***
+ok: [s01vl9995272.fr.net.intra]
+changed: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+
+TASK [install-dir : Create data microservice directory service-registration-and-discovery-service0] ***
+changed: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+
+TASK [install-dir : Create pid microservice directory service-registration-and-discovery-service0] ***
+changed: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+
+TASK [install-dir : Create tmp microservice directory service-registration-and-discovery-service0] ***
+ok: [s01vl9995247.fr.net.intra]
+changed: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+
+TASK [install-dir : Create dmp microservice directory service-registration-and-discovery-service0] ***
+changed: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+
+TASK [include_role : install-service] ******************************************
+
+TASK [install-service : Configure instances of microservice service-registration-and-discovery-client] ***
+included: /home/vagrant/manager/roles/install-service/tasks/configure_instance.yml for s01vl9995247.fr.net.intra, s01vl9995271.fr.net.intra, s01vl9995270.fr.net.intra, s01vl9995272.fr.net.intra => (item=0)
+included: /home/vagrant/manager/roles/install-service/tasks/configure_instance.yml for s01vl9995247.fr.net.intra, s01vl9995271.fr.net.intra, s01vl9995270.fr.net.intra, s01vl9995272.fr.net.intra => (item=1)
+
+TASK [install-service : debug] *************************************************
+ok: [s01vl9995247.fr.net.intra] => {
+    "microservice": {
+        "app_dir": "/opt/microservices",
+        "app_name": "service-registration-and-discovery-client",
+        "app_vesrion": "0.0.1-SNAPSHOT",
+        "artifact_id": "service-registration-and-discovery-client",
+        "client_param_one": "server",
+        "client_param_two": "otherServer",
+        "config_file_name_tpl": "app.config.j2",
+        "config_sub_dir": "/config",
+        "data_sub_dir": "/data",
+        "dmp_sub_dir": "/dmp",
+        "group_id": "com.example",
+        "log_sub_dir": "/log",
+        "number": 2,
+        "pid_sub_dir": "/pid",
+        "ports": [
+            8080,
+            8081
+        ],
+        "properties_file_name": "application.properties",
+        "properties_file_name_tpl": "app.properties.j2",
+        "springboot_backend_name": "back",
+        "tmp_sub_dir": "/tmp",
+        "type": "front"
+    }
+}
+ok: [s01vl9995271.fr.net.intra] => {
+    "microservice": {
+        "app_dir": "/opt/microservices",
+        "app_name": "service-registration-and-discovery-client",
+        "app_vesrion": "0.0.1-SNAPSHOT",
+        "artifact_id": "service-registration-and-discovery-client",
+        "client_param_one": "server",
+        "client_param_two": "otherServer",
+        "config_file_name_tpl": "app.config.j2",
+        "config_sub_dir": "/config",
+        "data_sub_dir": "/data",
+        "dmp_sub_dir": "/dmp",
+        "group_id": "com.example",
+        "log_sub_dir": "/log",
+        "number": 2,
+        "pid_sub_dir": "/pid",
+        "ports": [
+            8080,
+            8081
+        ],
+        "properties_file_name": "application.properties",
+        "properties_file_name_tpl": "app.properties.j2",
+        "springboot_backend_name": "back",
+        "tmp_sub_dir": "/tmp",
+        "type": "front"
+    }
+}
+ok: [s01vl9995270.fr.net.intra] => {
+    "microservice": {
+        "app_dir": "/opt/microservices",
+        "app_name": "service-registration-and-discovery-client",
+        "app_vesrion": "0.0.1-SNAPSHOT",
+        "artifact_id": "service-registration-and-discovery-client",
+        "client_param_one": "server",
+        "client_param_two": "otherServer",
+        "config_file_name_tpl": "app.config.j2",
+        "config_sub_dir": "/config",
+        "data_sub_dir": "/data",
+        "dmp_sub_dir": "/dmp",
+        "group_id": "com.example",
+        "log_sub_dir": "/log",
+        "number": 2,
+        "pid_sub_dir": "/pid",
+        "ports": [
+            8080,
+            8081
+        ],
+        "properties_file_name": "application.properties",
+        "properties_file_name_tpl": "app.properties.j2",
+        "springboot_backend_name": "back",
+        "tmp_sub_dir": "/tmp",
+        "type": "front"
+    }
+}
+ok: [s01vl9995272.fr.net.intra] => {
+    "microservice": {
+        "app_dir": "/opt/microservices",
+        "app_name": "service-registration-and-discovery-client",
+        "app_vesrion": "0.0.1-SNAPSHOT",
+        "artifact_id": "service-registration-and-discovery-client",
+        "client_param_one": "server",
+        "client_param_two": "otherServer",
+        "config_file_name_tpl": "app.config.j2",
+        "config_sub_dir": "/config",
+        "data_sub_dir": "/data",
+        "dmp_sub_dir": "/dmp",
+        "group_id": "com.example",
+        "log_sub_dir": "/log",
+        "number": 2,
+        "pid_sub_dir": "/pid",
+        "ports": [
+            8080,
+            8081
+        ],
+        "properties_file_name": "application.properties",
+        "properties_file_name_tpl": "app.properties.j2",
+        "springboot_backend_name": "back",
+        "tmp_sub_dir": "/tmp",
+        "type": "front"
+    }
+}
+
+TASK [install-service : debug] *************************************************
+ok: [s01vl9995247.fr.net.intra] => {
+    "instance_name": "service-registration-and-discovery-client0"
+}
+ok: [s01vl9995271.fr.net.intra] => {
+    "instance_name": "service-registration-and-discovery-client0"
+}
+ok: [s01vl9995270.fr.net.intra] => {
+    "instance_name": "service-registration-and-discovery-client0"
+}
+ok: [s01vl9995272.fr.net.intra] => {
+    "instance_name": "service-registration-and-discovery-client0"
+}
+
+TASK [install-service : debug] *************************************************
+ok: [s01vl9995247.fr.net.intra] => {
+    "microservice": {
+        "app_dir": "/opt/microservices",
+        "app_name": "service-registration-and-discovery-client",
+        "app_vesrion": "0.0.1-SNAPSHOT",
+        "artifact_id": "service-registration-and-discovery-client",
+        "client_param_one": "server",
+        "client_param_two": "otherServer",
+        "config_file_name_tpl": "app.config.j2",
+        "config_sub_dir": "/config",
+        "data_sub_dir": "/data",
+        "dmp_sub_dir": "/dmp",
+        "group_id": "com.example",
+        "log_sub_dir": "/log",
+        "number": 2,
+        "pid_sub_dir": "/pid",
+        "ports": [
+            8080,
+            8081
+        ],
+        "properties_file_name": "application.properties",
+        "properties_file_name_tpl": "app.properties.j2",
+        "springboot_backend_name": "back",
+        "tmp_sub_dir": "/tmp",
+        "type": "front"
+    }
+}
+ok: [s01vl9995271.fr.net.intra] => {
+    "microservice": {
+        "app_dir": "/opt/microservices",
+        "app_name": "service-registration-and-discovery-client",
+        "app_vesrion": "0.0.1-SNAPSHOT",
+        "artifact_id": "service-registration-and-discovery-client",
+        "client_param_one": "server",
+        "client_param_two": "otherServer",
+        "config_file_name_tpl": "app.config.j2",
+        "config_sub_dir": "/config",
+        "data_sub_dir": "/data",
+        "dmp_sub_dir": "/dmp",
+        "group_id": "com.example",
+        "log_sub_dir": "/log",
+        "number": 2,
+        "pid_sub_dir": "/pid",
+        "ports": [
+            8080,
+            8081
+        ],
+        "properties_file_name": "application.properties",
+        "properties_file_name_tpl": "app.properties.j2",
+        "springboot_backend_name": "back",
+        "tmp_sub_dir": "/tmp",
+        "type": "front"
+    }
+}
+ok: [s01vl9995270.fr.net.intra] => {
+    "microservice": {
+        "app_dir": "/opt/microservices",
+        "app_name": "service-registration-and-discovery-client",
+        "app_vesrion": "0.0.1-SNAPSHOT",
+        "artifact_id": "service-registration-and-discovery-client",
+        "client_param_one": "server",
+        "client_param_two": "otherServer",
+        "config_file_name_tpl": "app.config.j2",
+        "config_sub_dir": "/config",
+        "data_sub_dir": "/data",
+        "dmp_sub_dir": "/dmp",
+        "group_id": "com.example",
+        "log_sub_dir": "/log",
+        "number": 2,
+        "pid_sub_dir": "/pid",
+        "ports": [
+            8080,
+            8081
+        ],
+        "properties_file_name": "application.properties",
+        "properties_file_name_tpl": "app.properties.j2",
+        "springboot_backend_name": "back",
+        "tmp_sub_dir": "/tmp",
+        "type": "front"
+    }
+}
+ok: [s01vl9995272.fr.net.intra] => {
+    "microservice": {
+        "app_dir": "/opt/microservices",
+        "app_name": "service-registration-and-discovery-client",
+        "app_vesrion": "0.0.1-SNAPSHOT",
+        "artifact_id": "service-registration-and-discovery-client",
+        "client_param_one": "server",
+        "client_param_two": "otherServer",
+        "config_file_name_tpl": "app.config.j2",
+        "config_sub_dir": "/config",
+        "data_sub_dir": "/data",
+        "dmp_sub_dir": "/dmp",
+        "group_id": "com.example",
+        "log_sub_dir": "/log",
+        "number": 2,
+        "pid_sub_dir": "/pid",
+        "ports": [
+            8080,
+            8081
+        ],
+        "properties_file_name": "application.properties",
+        "properties_file_name_tpl": "app.properties.j2",
+        "springboot_backend_name": "back",
+        "tmp_sub_dir": "/tmp",
+        "type": "front"
+    }
+}
+
+TASK [install-service : debug] *************************************************
+ok: [s01vl9995247.fr.net.intra] => {
+    "instance_name": "service-registration-and-discovery-client1"
+}
+ok: [s01vl9995271.fr.net.intra] => {
+    "instance_name": "service-registration-and-discovery-client1"
+}
+ok: [s01vl9995270.fr.net.intra] => {
+    "instance_name": "service-registration-and-discovery-client1"
+}
+ok: [s01vl9995272.fr.net.intra] => {
+    "instance_name": "service-registration-and-discovery-client1"
+}
+
+TASK [install-service : Call role-springboot for microservice service-registration-and-discovery-client by instance] ***
+included: /home/vagrant/manager/roles/install-service/tasks/call-springboot-role.yml for s01vl9995247.fr.net.intra, s01vl9995270.fr.net.intra, s01vl9995271.fr.net.intra, s01vl9995272.fr.net.intra => (item=0)
+included: /home/vagrant/manager/roles/install-service/tasks/call-springboot-role.yml for s01vl9995247.fr.net.intra, s01vl9995270.fr.net.intra, s01vl9995271.fr.net.intra, s01vl9995272.fr.net.intra => (item=1)
+
+TASK [install-service : set_fact] **********************************************
+ok: [s01vl9995247.fr.net.intra] => (item=app_dir)
+ok: [s01vl9995247.fr.net.intra] => (item=ports)
+ok: [s01vl9995247.fr.net.intra] => (item=config_file_name_tpl)
+ok: [s01vl9995247.fr.net.intra] => (item=properties_file_name_tpl)
+ok: [s01vl9995247.fr.net.intra] => (item=properties_file_name)
+ok: [s01vl9995247.fr.net.intra] => (item=dmp_sub_dir)
+ok: [s01vl9995247.fr.net.intra] => (item=tmp_sub_dir)
+ok: [s01vl9995247.fr.net.intra] => (item=pid_sub_dir)
+ok: [s01vl9995247.fr.net.intra] => (item=data_sub_dir)
+ok: [s01vl9995247.fr.net.intra] => (item=log_sub_dir)
+ok: [s01vl9995247.fr.net.intra] => (item=config_sub_dir)
+ok: [s01vl9995271.fr.net.intra] => (item=app_dir)
+ok: [s01vl9995271.fr.net.intra] => (item=ports)
+ok: [s01vl9995247.fr.net.intra] => (item=client_param_two)
+ok: [s01vl9995271.fr.net.intra] => (item=config_file_name_tpl)
+ok: [s01vl9995247.fr.net.intra] => (item=client_param_one)
+ok: [s01vl9995247.fr.net.intra] => (item=springboot_backend_name)
+ok: [s01vl9995270.fr.net.intra] => (item=app_dir)
+ok: [s01vl9995271.fr.net.intra] => (item=properties_file_name_tpl)
+ok: [s01vl9995271.fr.net.intra] => (item=properties_file_name)
+ok: [s01vl9995270.fr.net.intra] => (item=ports)
+ok: [s01vl9995270.fr.net.intra] => (item=config_file_name_tpl)
+ok: [s01vl9995271.fr.net.intra] => (item=dmp_sub_dir)
+ok: [s01vl9995247.fr.net.intra] => (item=app_name)
+ok: [s01vl9995247.fr.net.intra] => (item=type)
+ok: [s01vl9995271.fr.net.intra] => (item=tmp_sub_dir)
+ok: [s01vl9995270.fr.net.intra] => (item=properties_file_name_tpl)
+ok: [s01vl9995271.fr.net.intra] => (item=pid_sub_dir)
+ok: [s01vl9995247.fr.net.intra] => (item=number)
+ok: [s01vl9995247.fr.net.intra] => (item=app_vesrion)
+ok: [s01vl9995270.fr.net.intra] => (item=properties_file_name)
+ok: [s01vl9995270.fr.net.intra] => (item=dmp_sub_dir)
+ok: [s01vl9995271.fr.net.intra] => (item=data_sub_dir)
+ok: [s01vl9995247.fr.net.intra] => (item=artifact_id)
+ok: [s01vl9995247.fr.net.intra] => (item=group_id)
+ok: [s01vl9995270.fr.net.intra] => (item=tmp_sub_dir)
+ok: [s01vl9995270.fr.net.intra] => (item=pid_sub_dir)
+ok: [s01vl9995271.fr.net.intra] => (item=log_sub_dir)
+ok: [s01vl9995272.fr.net.intra] => (item=app_dir)
+ok: [s01vl9995270.fr.net.intra] => (item=data_sub_dir)
+ok: [s01vl9995270.fr.net.intra] => (item=log_sub_dir)
+ok: [s01vl9995271.fr.net.intra] => (item=config_sub_dir)
+ok: [s01vl9995271.fr.net.intra] => (item=client_param_two)
+ok: [s01vl9995272.fr.net.intra] => (item=ports)
+ok: [s01vl9995272.fr.net.intra] => (item=config_file_name_tpl)
+ok: [s01vl9995270.fr.net.intra] => (item=config_sub_dir)
+ok: [s01vl9995270.fr.net.intra] => (item=client_param_two)
+ok: [s01vl9995271.fr.net.intra] => (item=client_param_one)
+ok: [s01vl9995271.fr.net.intra] => (item=springboot_backend_name)
+ok: [s01vl9995272.fr.net.intra] => (item=properties_file_name_tpl)
+ok: [s01vl9995270.fr.net.intra] => (item=client_param_one)
+ok: [s01vl9995270.fr.net.intra] => (item=springboot_backend_name)
+ok: [s01vl9995270.fr.net.intra] => (item=app_name)
+ok: [s01vl9995270.fr.net.intra] => (item=type)
+ok: [s01vl9995270.fr.net.intra] => (item=number)
+ok: [s01vl9995270.fr.net.intra] => (item=app_vesrion)
+ok: [s01vl9995271.fr.net.intra] => (item=app_name)
+ok: [s01vl9995270.fr.net.intra] => (item=artifact_id)
+ok: [s01vl9995270.fr.net.intra] => (item=group_id)
+ok: [s01vl9995272.fr.net.intra] => (item=properties_file_name)
+ok: [s01vl9995271.fr.net.intra] => (item=type)
+ok: [s01vl9995271.fr.net.intra] => (item=number)
+ok: [s01vl9995272.fr.net.intra] => (item=dmp_sub_dir)
+ok: [s01vl9995272.fr.net.intra] => (item=tmp_sub_dir)
+ok: [s01vl9995272.fr.net.intra] => (item=pid_sub_dir)
+ok: [s01vl9995271.fr.net.intra] => (item=app_vesrion)
+ok: [s01vl9995271.fr.net.intra] => (item=artifact_id)
+ok: [s01vl9995271.fr.net.intra] => (item=group_id)
+ok: [s01vl9995272.fr.net.intra] => (item=data_sub_dir)
+ok: [s01vl9995272.fr.net.intra] => (item=log_sub_dir)
+ok: [s01vl9995272.fr.net.intra] => (item=config_sub_dir)
+ok: [s01vl9995272.fr.net.intra] => (item=client_param_two)
+ok: [s01vl9995272.fr.net.intra] => (item=client_param_one)
+ok: [s01vl9995272.fr.net.intra] => (item=springboot_backend_name)
+ok: [s01vl9995272.fr.net.intra] => (item=app_name)
+ok: [s01vl9995272.fr.net.intra] => (item=type)
+ok: [s01vl9995272.fr.net.intra] => (item=number)
+ok: [s01vl9995272.fr.net.intra] => (item=app_vesrion)
+ok: [s01vl9995272.fr.net.intra] => (item=artifact_id)
+ok: [s01vl9995272.fr.net.intra] => (item=group_id)
+
+TASK [install-service : debug] *************************************************
+ok: [s01vl9995247.fr.net.intra] => {
+    "instance_item": "0"
+}
+ok: [s01vl9995271.fr.net.intra] => {
+    "instance_item": "0"
+}
+ok: [s01vl9995270.fr.net.intra] => {
+    "instance_item": "0"
+}
+ok: [s01vl9995272.fr.net.intra] => {
+    "instance_item": "0"
+}
+
+TASK [install-service : set_fact] **********************************************
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+
+TASK [install-service : debug] *************************************************
+ok: [s01vl9995247.fr.net.intra] => {
+    "app_port": "8080"
+}
+ok: [s01vl9995271.fr.net.intra] => {
+    "app_port": "8080"
+}
+ok: [s01vl9995270.fr.net.intra] => {
+    "app_port": "8080"
+}
+ok: [s01vl9995272.fr.net.intra] => {
+    "app_port": "8080"
+}
+
+TASK [install-service : set_fact] **********************************************
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+
+TASK [include_role : role-springboot] ******************************************
+
+TASK [role-springboot : Prerequisites | Install python-lxml required by maven_artifact module on remote host] ***
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Prerequisites | Install python-lxml required by maven_artifact module on local host] ***
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Check vars | Assert sb_users_definition is defined] ****
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Check vars | Assert sb_user_groups_definitions is defined] ***
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Check vars | Assert sb_app_name is defined] ************
+ok: [s01vl9995247.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995271.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995270.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995272.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [role-springboot : Check vars | Assert sb_app_group_id is defined] ********
+ok: [s01vl9995247.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995271.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995270.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995272.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [role-springboot : Check vars | Assert sb_app_artifact_id is defined] *****
+ok: [s01vl9995247.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995271.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995270.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995272.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [role-springboot : Check vars | Assert sb_app_version is defined] *********
+ok: [s01vl9995247.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995271.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995270.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995272.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [role-springboot : Check vars | Assert sb_app_user is defined] ************
+ok: [s01vl9995247.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995271.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995270.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995272.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [role-springboot : Check vars | Assert sb_app_user_group is defined] ******
+ok: [s01vl9995247.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995271.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995270.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995272.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [role-springboot : Check vars | Assert sb_maven_repository_url or sb_app_artifact_file is defined] ***
+ok: [s01vl9995247.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995271.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995270.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995272.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [role-springboot : Set application destination folder] ********************
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Set artifact destination file] *************************
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot :  Service | Check if use systemd] ***********************
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : debug] *************************************************
+ok: [s01vl9995247.fr.net.intra] => {
+    "ansible_distribution_version": "20.04"
+}
+ok: [s01vl9995271.fr.net.intra] => {
+    "ansible_distribution_version": "20.04"
+}
+ok: [s01vl9995270.fr.net.intra] => {
+    "ansible_distribution_version": "20.04"
+}
+ok: [s01vl9995272.fr.net.intra] => {
+    "ansible_distribution_version": "20.04"
+}
+
+TASK [role-springboot :  Service | Check if use use_initd] *********************
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Install | Ensure app root folder exist] ****************
+ok: [s01vl9995247.fr.net.intra]
+changed: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Install | Ensure app version folder exist] *************
+changed: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+
+TASK [role-springboot : Install | Ensure PID_FOLDER exist (only for init.d)] ***
+skipping: [s01vl9995247.fr.net.intra] => (item=run) 
+skipping: [s01vl9995247.fr.net.intra] => (item=logs) 
+skipping: [s01vl9995271.fr.net.intra] => (item=run) 
+skipping: [s01vl9995271.fr.net.intra] => (item=logs) 
+skipping: [s01vl9995270.fr.net.intra] => (item=run) 
+skipping: [s01vl9995270.fr.net.intra] => (item=logs) 
+skipping: [s01vl9995272.fr.net.intra] => (item=run) 
+skipping: [s01vl9995272.fr.net.intra] => (item=logs) 
+
+TASK [role-springboot : debug] *************************************************
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : debug] *************************************************
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Install | Download maven artifact directly on remote host] ***
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Install | Download maven artifact on local host] *******
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Install | Set sb_app_artifact_file] ********************
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Install | Copy application artifact file] **************
+ok: [s01vl9995272.fr.net.intra]
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+changed: [s01vl9995271.fr.net.intra]
+
+TASK [role-springboot : Install | Ensure app artifact symlink exist] ***********
+ok: [s01vl9995247.fr.net.intra]
+changed: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Install | Source application service conf] *************
+changed: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Install | Ensure application service conf symlink exist] ***
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+changed: [s01vl9995271.fr.net.intra]
+
+TASK [role-springboot : debug] *************************************************
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Install | Source application configuration file] *******
+changed: [s01vl9995271.fr.net.intra]
+changed: [s01vl9995247.fr.net.intra]
+changed: [s01vl9995270.fr.net.intra]
+changed: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Install | Ensure application configuration symlink exist] ***
+changed: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Install | Source application logback file] *************
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Install | Ensure application logback symlink exist] ****
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Service | Create systemd service file] *****************
+ok: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+ok: [s01vl9995247.fr.net.intra]
+
+TASK [role-springboot : Service | Ensure app artifact initd symlink exist] *****
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Service | Ensure service-registration-and-discovery-client0 service is started] ***
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+changed: [s01vl9995271.fr.net.intra]
+
+TASK [role-springboot : Uninstall | Check if initd service Exists] *************
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Uninstall | Check if systemd service Exists] ***********
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Uninstall | Stop service-registration-and-discovery-client0 service] ***
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Uninstall | Remove systemd service file] ***************
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Uninstall | Remove initd service file] *****************
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Uninstall | Remove app artifact symlink] ***************
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Uninstall | Remove application service conf symlink] ***
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Uninstall | Remove application configuration symlink] ***
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Uninstall | Remove application logback  symlink] *******
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Uninstall | Remove SystemV run folder] *****************
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Uninstall | Remove app version folder] *****************
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : meta] **************************************************
+
+RUNNING HANDLER [role-springboot : Restart application] ************************
+changed: [s01vl9995271.fr.net.intra]
+changed: [s01vl9995247.fr.net.intra]
+changed: [s01vl9995272.fr.net.intra]
+changed: [s01vl9995270.fr.net.intra]
+
+TASK [role-springboot : Healthcheck | Wait for {{  sb_app_name }} to be healthy on URLs {{ sb_app_healthcheck_urls }}] ***
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Healthcheck | Wait for {{  sb_app_name }} to be healthy on TCP Ports {{ sb_app_healthcheck_ports }}] ***
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [install-service : set_fact] **********************************************
+ok: [s01vl9995247.fr.net.intra] => (item=app_dir)
+ok: [s01vl9995247.fr.net.intra] => (item=ports)
+ok: [s01vl9995247.fr.net.intra] => (item=config_file_name_tpl)
+ok: [s01vl9995247.fr.net.intra] => (item=properties_file_name_tpl)
+ok: [s01vl9995247.fr.net.intra] => (item=properties_file_name)
+ok: [s01vl9995247.fr.net.intra] => (item=dmp_sub_dir)
+ok: [s01vl9995247.fr.net.intra] => (item=tmp_sub_dir)
+ok: [s01vl9995247.fr.net.intra] => (item=pid_sub_dir)
+ok: [s01vl9995247.fr.net.intra] => (item=data_sub_dir)
+ok: [s01vl9995247.fr.net.intra] => (item=log_sub_dir)
+ok: [s01vl9995271.fr.net.intra] => (item=app_dir)
+ok: [s01vl9995247.fr.net.intra] => (item=config_sub_dir)
+ok: [s01vl9995247.fr.net.intra] => (item=client_param_two)
+ok: [s01vl9995271.fr.net.intra] => (item=ports)
+ok: [s01vl9995271.fr.net.intra] => (item=config_file_name_tpl)
+ok: [s01vl9995247.fr.net.intra] => (item=client_param_one)
+ok: [s01vl9995270.fr.net.intra] => (item=app_dir)
+ok: [s01vl9995270.fr.net.intra] => (item=ports)
+ok: [s01vl9995271.fr.net.intra] => (item=properties_file_name_tpl)
+ok: [s01vl9995247.fr.net.intra] => (item=springboot_backend_name)
+ok: [s01vl9995270.fr.net.intra] => (item=config_file_name_tpl)
+ok: [s01vl9995271.fr.net.intra] => (item=properties_file_name)
+ok: [s01vl9995247.fr.net.intra] => (item=app_name)
+ok: [s01vl9995270.fr.net.intra] => (item=properties_file_name_tpl)
+ok: [s01vl9995270.fr.net.intra] => (item=properties_file_name)
+ok: [s01vl9995272.fr.net.intra] => (item=app_dir)
+ok: [s01vl9995247.fr.net.intra] => (item=type)
+ok: [s01vl9995271.fr.net.intra] => (item=dmp_sub_dir)
+ok: [s01vl9995270.fr.net.intra] => (item=dmp_sub_dir)
+ok: [s01vl9995247.fr.net.intra] => (item=number)
+ok: [s01vl9995247.fr.net.intra] => (item=app_vesrion)
+ok: [s01vl9995272.fr.net.intra] => (item=ports)
+ok: [s01vl9995270.fr.net.intra] => (item=tmp_sub_dir)
+ok: [s01vl9995271.fr.net.intra] => (item=tmp_sub_dir)
+ok: [s01vl9995270.fr.net.intra] => (item=pid_sub_dir)
+ok: [s01vl9995271.fr.net.intra] => (item=pid_sub_dir)
+ok: [s01vl9995272.fr.net.intra] => (item=config_file_name_tpl)
+ok: [s01vl9995271.fr.net.intra] => (item=data_sub_dir)
+ok: [s01vl9995247.fr.net.intra] => (item=artifact_id)
+ok: [s01vl9995270.fr.net.intra] => (item=data_sub_dir)
+ok: [s01vl9995272.fr.net.intra] => (item=properties_file_name_tpl)
+ok: [s01vl9995247.fr.net.intra] => (item=group_id)
+ok: [s01vl9995271.fr.net.intra] => (item=log_sub_dir)
+ok: [s01vl9995272.fr.net.intra] => (item=properties_file_name)
+ok: [s01vl9995270.fr.net.intra] => (item=log_sub_dir)
+ok: [s01vl9995271.fr.net.intra] => (item=config_sub_dir)
+ok: [s01vl9995272.fr.net.intra] => (item=dmp_sub_dir)
+ok: [s01vl9995272.fr.net.intra] => (item=tmp_sub_dir)
+ok: [s01vl9995270.fr.net.intra] => (item=config_sub_dir)
+ok: [s01vl9995271.fr.net.intra] => (item=client_param_two)
+ok: [s01vl9995271.fr.net.intra] => (item=client_param_one)
+ok: [s01vl9995272.fr.net.intra] => (item=pid_sub_dir)
+ok: [s01vl9995270.fr.net.intra] => (item=client_param_two)
+ok: [s01vl9995271.fr.net.intra] => (item=springboot_backend_name)
+ok: [s01vl9995270.fr.net.intra] => (item=client_param_one)
+ok: [s01vl9995270.fr.net.intra] => (item=springboot_backend_name)
+ok: [s01vl9995271.fr.net.intra] => (item=app_name)
+ok: [s01vl9995272.fr.net.intra] => (item=data_sub_dir)
+ok: [s01vl9995270.fr.net.intra] => (item=app_name)
+ok: [s01vl9995270.fr.net.intra] => (item=type)
+ok: [s01vl9995272.fr.net.intra] => (item=log_sub_dir)
+ok: [s01vl9995270.fr.net.intra] => (item=number)
+ok: [s01vl9995271.fr.net.intra] => (item=type)
+ok: [s01vl9995272.fr.net.intra] => (item=config_sub_dir)
+ok: [s01vl9995270.fr.net.intra] => (item=app_vesrion)
+ok: [s01vl9995271.fr.net.intra] => (item=number)
+ok: [s01vl9995272.fr.net.intra] => (item=client_param_two)
+ok: [s01vl9995270.fr.net.intra] => (item=artifact_id)
+ok: [s01vl9995270.fr.net.intra] => (item=group_id)
+ok: [s01vl9995271.fr.net.intra] => (item=app_vesrion)
+ok: [s01vl9995272.fr.net.intra] => (item=client_param_one)
+ok: [s01vl9995271.fr.net.intra] => (item=artifact_id)
+ok: [s01vl9995272.fr.net.intra] => (item=springboot_backend_name)
+ok: [s01vl9995271.fr.net.intra] => (item=group_id)
+ok: [s01vl9995272.fr.net.intra] => (item=app_name)
+ok: [s01vl9995272.fr.net.intra] => (item=type)
+ok: [s01vl9995272.fr.net.intra] => (item=number)
+ok: [s01vl9995272.fr.net.intra] => (item=app_vesrion)
+ok: [s01vl9995272.fr.net.intra] => (item=artifact_id)
+ok: [s01vl9995272.fr.net.intra] => (item=group_id)
+
+TASK [install-service : debug] *************************************************
+ok: [s01vl9995247.fr.net.intra] => {
+    "instance_item": "1"
+}
+ok: [s01vl9995271.fr.net.intra] => {
+    "instance_item": "1"
+}
+ok: [s01vl9995270.fr.net.intra] => {
+    "instance_item": "1"
+}
+ok: [s01vl9995272.fr.net.intra] => {
+    "instance_item": "1"
+}
+
+TASK [install-service : set_fact] **********************************************
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+
+TASK [install-service : debug] *************************************************
+ok: [s01vl9995247.fr.net.intra] => {
+    "app_port": "8081"
+}
+ok: [s01vl9995271.fr.net.intra] => {
+    "app_port": "8081"
+}
+ok: [s01vl9995270.fr.net.intra] => {
+    "app_port": "8081"
+}
+ok: [s01vl9995272.fr.net.intra] => {
+    "app_port": "8081"
+}
+
+TASK [install-service : set_fact] **********************************************
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+
+TASK [include_role : role-springboot] ******************************************
+
+TASK [role-springboot : Prerequisites | Install python-lxml required by maven_artifact module on remote host] ***
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Prerequisites | Install python-lxml required by maven_artifact module on local host] ***
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Check vars | Assert sb_users_definition is defined] ****
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Check vars | Assert sb_user_groups_definitions is defined] ***
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Check vars | Assert sb_app_name is defined] ************
+ok: [s01vl9995247.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995271.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995270.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995272.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [role-springboot : Check vars | Assert sb_app_group_id is defined] ********
+ok: [s01vl9995247.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995271.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995270.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995272.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [role-springboot : Check vars | Assert sb_app_artifact_id is defined] *****
+ok: [s01vl9995247.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995271.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995270.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995272.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [role-springboot : Check vars | Assert sb_app_version is defined] *********
+ok: [s01vl9995247.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995271.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995270.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995272.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [role-springboot : Check vars | Assert sb_app_user is defined] ************
+ok: [s01vl9995247.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995271.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995270.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995272.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [role-springboot : Check vars | Assert sb_app_user_group is defined] ******
+ok: [s01vl9995247.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995271.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995270.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995272.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [role-springboot : Check vars | Assert sb_maven_repository_url or sb_app_artifact_file is defined] ***
+ok: [s01vl9995247.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995271.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995270.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995272.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [role-springboot : Set application destination folder] ********************
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Set artifact destination file] *************************
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot :  Service | Check if use systemd] ***********************
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : debug] *************************************************
+ok: [s01vl9995247.fr.net.intra] => {
+    "ansible_distribution_version": "20.04"
+}
+ok: [s01vl9995271.fr.net.intra] => {
+    "ansible_distribution_version": "20.04"
+}
+ok: [s01vl9995270.fr.net.intra] => {
+    "ansible_distribution_version": "20.04"
+}
+ok: [s01vl9995272.fr.net.intra] => {
+    "ansible_distribution_version": "20.04"
+}
+
+TASK [role-springboot :  Service | Check if use use_initd] *********************
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Install | Ensure app root folder exist] ****************
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+changed: [s01vl9995271.fr.net.intra]
+
+TASK [role-springboot : Install | Ensure app version folder exist] *************
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+changed: [s01vl9995271.fr.net.intra]
+
+TASK [role-springboot : Install | Ensure PID_FOLDER exist (only for init.d)] ***
+skipping: [s01vl9995247.fr.net.intra] => (item=run) 
+skipping: [s01vl9995247.fr.net.intra] => (item=logs) 
+skipping: [s01vl9995271.fr.net.intra] => (item=run) 
+skipping: [s01vl9995271.fr.net.intra] => (item=logs) 
+skipping: [s01vl9995270.fr.net.intra] => (item=run) 
+skipping: [s01vl9995270.fr.net.intra] => (item=logs) 
+skipping: [s01vl9995272.fr.net.intra] => (item=run) 
+skipping: [s01vl9995272.fr.net.intra] => (item=logs) 
+
+TASK [role-springboot : debug] *************************************************
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : debug] *************************************************
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Install | Download maven artifact directly on remote host] ***
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Install | Download maven artifact on local host] *******
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Install | Set sb_app_artifact_file] ********************
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Install | Copy application artifact file] **************
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+changed: [s01vl9995271.fr.net.intra]
+
+TASK [role-springboot : Install | Ensure app artifact symlink exist] ***********
+changed: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+
+TASK [role-springboot : Install | Source application service conf] *************
+changed: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+
+TASK [role-springboot : Install | Ensure application service conf symlink exist] ***
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+changed: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : debug] *************************************************
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Install | Source application configuration file] *******
+ok: [s01vl9995247.fr.net.intra]
+changed: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+
+TASK [role-springboot : Install | Ensure application configuration symlink exist] ***
+ok: [s01vl9995247.fr.net.intra]
+changed: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Install | Source application logback file] *************
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Install | Ensure application logback symlink exist] ****
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Service | Create systemd service file] *****************
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Service | Ensure app artifact initd symlink exist] *****
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Service | Ensure service-registration-and-discovery-client1 service is started] ***
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+changed: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+
+TASK [role-springboot : Uninstall | Check if initd service Exists] *************
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Uninstall | Check if systemd service Exists] ***********
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Uninstall | Stop service-registration-and-discovery-client1 service] ***
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Uninstall | Remove systemd service file] ***************
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Uninstall | Remove initd service file] *****************
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Uninstall | Remove app artifact symlink] ***************
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Uninstall | Remove application service conf symlink] ***
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Uninstall | Remove application configuration symlink] ***
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Uninstall | Remove application logback  symlink] *******
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Uninstall | Remove SystemV run folder] *****************
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Uninstall | Remove app version folder] *****************
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : meta] **************************************************
+
+RUNNING HANDLER [role-springboot : Restart application] ************************
+changed: [s01vl9995271.fr.net.intra]
+
+TASK [role-springboot : Healthcheck | Wait for {{  sb_app_name }} to be healthy on URLs {{ sb_app_healthcheck_urls }}] ***
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Healthcheck | Wait for {{  sb_app_name }} to be healthy on TCP Ports {{ sb_app_healthcheck_ports }}] ***
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [include_role : role-springboot] ******************************************
+
+TASK [role-springboot : Prerequisites | Install python-lxml required by maven_artifact module on remote host] ***
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Prerequisites | Install python-lxml required by maven_artifact module on local host] ***
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Check vars | Assert sb_users_definition is defined] ****
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Check vars | Assert sb_user_groups_definitions is defined] ***
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Check vars | Assert sb_app_name is defined] ************
+ok: [s01vl9995247.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995271.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995270.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995272.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [role-springboot : Check vars | Assert sb_app_group_id is defined] ********
+ok: [s01vl9995247.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995271.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995270.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995272.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [role-springboot : Check vars | Assert sb_app_artifact_id is defined] *****
+ok: [s01vl9995247.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995271.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995270.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995272.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [role-springboot : Check vars | Assert sb_app_version is defined] *********
+ok: [s01vl9995247.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995271.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995270.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995272.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [role-springboot : Check vars | Assert sb_app_user is defined] ************
+ok: [s01vl9995247.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995271.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995270.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995272.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [role-springboot : Check vars | Assert sb_app_user_group is defined] ******
+ok: [s01vl9995247.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995271.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995270.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995272.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [role-springboot : Check vars | Assert sb_maven_repository_url or sb_app_artifact_file is defined] ***
+ok: [s01vl9995247.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995271.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995270.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995272.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [role-springboot : Set application destination folder] ********************
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Set artifact destination file] *************************
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot :  Service | Check if use systemd] ***********************
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : debug] *************************************************
+ok: [s01vl9995247.fr.net.intra] => {
+    "ansible_distribution_version": "20.04"
+}
+ok: [s01vl9995271.fr.net.intra] => {
+    "ansible_distribution_version": "20.04"
+}
+ok: [s01vl9995270.fr.net.intra] => {
+    "ansible_distribution_version": "20.04"
+}
+ok: [s01vl9995272.fr.net.intra] => {
+    "ansible_distribution_version": "20.04"
+}
+
+TASK [role-springboot :  Service | Check if use use_initd] *********************
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Install | Ensure app root folder exist] ****************
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+ok: [s01vl9995271.fr.net.intra]
+
+TASK [role-springboot : Install | Ensure app version folder exist] *************
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+ok: [s01vl9995271.fr.net.intra]
+
+TASK [role-springboot : Install | Ensure PID_FOLDER exist (only for init.d)] ***
+skipping: [s01vl9995247.fr.net.intra] => (item=run) 
+skipping: [s01vl9995247.fr.net.intra] => (item=logs) 
+skipping: [s01vl9995271.fr.net.intra] => (item=run) 
+skipping: [s01vl9995271.fr.net.intra] => (item=logs) 
+skipping: [s01vl9995270.fr.net.intra] => (item=run) 
+skipping: [s01vl9995270.fr.net.intra] => (item=logs) 
+skipping: [s01vl9995272.fr.net.intra] => (item=run) 
+skipping: [s01vl9995272.fr.net.intra] => (item=logs) 
+
+TASK [role-springboot : debug] *************************************************
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : debug] *************************************************
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Install | Download maven artifact directly on remote host] ***
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Install | Download maven artifact on local host] *******
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Install | Set sb_app_artifact_file] ********************
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Install | Copy application artifact file] **************
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995271.fr.net.intra]
+
+TASK [role-springboot : Install | Ensure app artifact symlink exist] ***********
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+ok: [s01vl9995271.fr.net.intra]
+
+TASK [role-springboot : Install | Source application service conf] *************
+ok: [s01vl9995272.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995271.fr.net.intra]
+
+TASK [role-springboot : Install | Ensure application service conf symlink exist] ***
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995271.fr.net.intra]
+
+TASK [role-springboot : debug] *************************************************
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Install | Source application configuration file] *******
+changed: [s01vl9995270.fr.net.intra]
+changed: [s01vl9995247.fr.net.intra]
+changed: [s01vl9995272.fr.net.intra]
+changed: [s01vl9995271.fr.net.intra]
+
+TASK [role-springboot : Install | Ensure application configuration symlink exist] ***
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+ok: [s01vl9995271.fr.net.intra]
+
+TASK [role-springboot : Install | Source application logback file] *************
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Install | Ensure application logback symlink exist] ****
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Service | Create systemd service file] *****************
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+ok: [s01vl9995271.fr.net.intra]
+
+TASK [role-springboot : Service | Ensure app artifact initd symlink exist] *****
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Service | Ensure service-registration-and-discovery-client0 service is started] ***
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+
+TASK [role-springboot : Uninstall | Check if initd service Exists] *************
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Uninstall | Check if systemd service Exists] ***********
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Uninstall | Stop service-registration-and-discovery-client0 service] ***
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Uninstall | Remove systemd service file] ***************
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Uninstall | Remove initd service file] *****************
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Uninstall | Remove app artifact symlink] ***************
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Uninstall | Remove application service conf symlink] ***
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Uninstall | Remove application configuration symlink] ***
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Uninstall | Remove application logback  symlink] *******
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Uninstall | Remove SystemV run folder] *****************
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Uninstall | Remove app version folder] *****************
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : meta] **************************************************
+
+RUNNING HANDLER [role-springboot : Restart application] ************************
+changed: [s01vl9995271.fr.net.intra]
+changed: [s01vl9995247.fr.net.intra]
+changed: [s01vl9995272.fr.net.intra]
+changed: [s01vl9995270.fr.net.intra]
+
+TASK [role-springboot : Healthcheck | Wait for {{  sb_app_name }} to be healthy on URLs {{ sb_app_healthcheck_urls }}] ***
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Healthcheck | Wait for {{  sb_app_name }} to be healthy on TCP Ports {{ sb_app_healthcheck_ports }}] ***
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Prerequisites | Install python-lxml required by maven_artifact module on remote host] ***
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Prerequisites | Install python-lxml required by maven_artifact module on local host] ***
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Check vars | Assert sb_users_definition is defined] ****
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Check vars | Assert sb_user_groups_definitions is defined] ***
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Check vars | Assert sb_app_name is defined] ************
+ok: [s01vl9995247.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995271.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995270.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995272.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [role-springboot : Check vars | Assert sb_app_group_id is defined] ********
+ok: [s01vl9995247.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995271.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995270.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995272.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [role-springboot : Check vars | Assert sb_app_artifact_id is defined] *****
+ok: [s01vl9995247.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995271.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995270.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995272.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [role-springboot : Check vars | Assert sb_app_version is defined] *********
+ok: [s01vl9995247.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995271.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995270.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995272.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [role-springboot : Check vars | Assert sb_app_user is defined] ************
+ok: [s01vl9995247.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995271.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995270.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995272.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [role-springboot : Check vars | Assert sb_app_user_group is defined] ******
+ok: [s01vl9995247.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995271.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995270.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995272.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [role-springboot : Check vars | Assert sb_maven_repository_url or sb_app_artifact_file is defined] ***
+ok: [s01vl9995247.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995271.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995270.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995272.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [role-springboot : Set application destination folder] ********************
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Set artifact destination file] *************************
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot :  Service | Check if use systemd] ***********************
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : debug] *************************************************
+ok: [s01vl9995247.fr.net.intra] => {
+    "ansible_distribution_version": "20.04"
+}
+ok: [s01vl9995271.fr.net.intra] => {
+    "ansible_distribution_version": "20.04"
+}
+ok: [s01vl9995270.fr.net.intra] => {
+    "ansible_distribution_version": "20.04"
+}
+ok: [s01vl9995272.fr.net.intra] => {
+    "ansible_distribution_version": "20.04"
+}
+
+TASK [role-springboot :  Service | Check if use use_initd] *********************
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Install | Ensure app root folder exist] ****************
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995271.fr.net.intra]
+
+TASK [role-springboot : Install | Ensure app version folder exist] *************
+ok: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995247.fr.net.intra]
+
+TASK [role-springboot : Install | Ensure PID_FOLDER exist (only for init.d)] ***
+skipping: [s01vl9995247.fr.net.intra] => (item=run) 
+skipping: [s01vl9995247.fr.net.intra] => (item=logs) 
+skipping: [s01vl9995271.fr.net.intra] => (item=run) 
+skipping: [s01vl9995271.fr.net.intra] => (item=logs) 
+skipping: [s01vl9995270.fr.net.intra] => (item=run) 
+skipping: [s01vl9995270.fr.net.intra] => (item=logs) 
+skipping: [s01vl9995272.fr.net.intra] => (item=run) 
+skipping: [s01vl9995272.fr.net.intra] => (item=logs) 
+
+TASK [role-springboot : debug] *************************************************
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : debug] *************************************************
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Install | Download maven artifact directly on remote host] ***
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Install | Download maven artifact on local host] *******
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Install | Set sb_app_artifact_file] ********************
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Install | Copy application artifact file] **************
+ok: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+
+TASK [role-springboot : Install | Ensure app artifact symlink exist] ***********
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Install | Source application service conf] *************
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995271.fr.net.intra]
+
+TASK [role-springboot : Install | Ensure application service conf symlink exist] ***
+ok: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : debug] *************************************************
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Install | Source application configuration file] *******
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Install | Ensure application configuration symlink exist] ***
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+
+TASK [role-springboot : Install | Source application logback file] *************
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Install | Ensure application logback symlink exist] ****
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Service | Create systemd service file] *****************
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Service | Ensure app artifact initd symlink exist] *****
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Service | Ensure service-registration-and-discovery-client1 service is started] ***
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Uninstall | Check if initd service Exists] *************
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Uninstall | Check if systemd service Exists] ***********
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Uninstall | Stop service-registration-and-discovery-client1 service] ***
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Uninstall | Remove systemd service file] ***************
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Uninstall | Remove initd service file] *****************
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Uninstall | Remove app artifact symlink] ***************
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Uninstall | Remove application service conf symlink] ***
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Uninstall | Remove application configuration symlink] ***
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Uninstall | Remove application logback  symlink] *******
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Uninstall | Remove SystemV run folder] *****************
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Uninstall | Remove app version folder] *****************
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : meta] **************************************************
+
+TASK [role-springboot : Healthcheck | Wait for {{  sb_app_name }} to be healthy on URLs {{ sb_app_healthcheck_urls }}] ***
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Healthcheck | Wait for {{  sb_app_name }} to be healthy on TCP Ports {{ sb_app_healthcheck_ports }}] ***
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [install-service : Configure instances of microservice service-registration-and-discovery-service] ***
+included: /home/vagrant/manager/roles/install-service/tasks/configure_instance.yml for s01vl9995247.fr.net.intra, s01vl9995271.fr.net.intra, s01vl9995270.fr.net.intra, s01vl9995272.fr.net.intra => (item=0)
+
+TASK [install-service : debug] *************************************************
+ok: [s01vl9995247.fr.net.intra] => {
+    "microservice": {
+        "app_dir": "/opt/microservices",
+        "app_name": "service-registration-and-discovery-service",
+        "app_vesrion": "0.0.1-SNAPSHOT",
+        "artifact_id": "service-registration-and-discovery-service",
+        "config_file_name_tpl": "app.config.j2",
+        "config_sub_dir": "/config",
+        "data_sub_dir": "/data",
+        "dmp_sub_dir": "/dmp",
+        "group_id": "com.example",
+        "log_sub_dir": "/log",
+        "number": 1,
+        "pid_sub_dir": "/pid",
+        "ports": [],
+        "properties_file_name": "application.properties",
+        "properties_file_name_tpl": "app.properties.j2",
+        "service_param_one": "server",
+        "service_param_two": "otherServer",
+        "tmp_sub_dir": "/tmp",
+        "type": "back"
+    }
+}
+ok: [s01vl9995271.fr.net.intra] => {
+    "microservice": {
+        "app_dir": "/opt/microservices",
+        "app_name": "service-registration-and-discovery-service",
+        "app_vesrion": "0.0.1-SNAPSHOT",
+        "artifact_id": "service-registration-and-discovery-service",
+        "config_file_name_tpl": "app.config.j2",
+        "config_sub_dir": "/config",
+        "data_sub_dir": "/data",
+        "dmp_sub_dir": "/dmp",
+        "group_id": "com.example",
+        "log_sub_dir": "/log",
+        "number": 1,
+        "pid_sub_dir": "/pid",
+        "ports": [],
+        "properties_file_name": "application.properties",
+        "properties_file_name_tpl": "app.properties.j2",
+        "service_param_one": "server",
+        "service_param_two": "otherServer",
+        "tmp_sub_dir": "/tmp",
+        "type": "back"
+    }
+}
+ok: [s01vl9995270.fr.net.intra] => {
+    "microservice": {
+        "app_dir": "/opt/microservices",
+        "app_name": "service-registration-and-discovery-service",
+        "app_vesrion": "0.0.1-SNAPSHOT",
+        "artifact_id": "service-registration-and-discovery-service",
+        "config_file_name_tpl": "app.config.j2",
+        "config_sub_dir": "/config",
+        "data_sub_dir": "/data",
+        "dmp_sub_dir": "/dmp",
+        "group_id": "com.example",
+        "log_sub_dir": "/log",
+        "number": 1,
+        "pid_sub_dir": "/pid",
+        "ports": [],
+        "properties_file_name": "application.properties",
+        "properties_file_name_tpl": "app.properties.j2",
+        "service_param_one": "server",
+        "service_param_two": "otherServer",
+        "tmp_sub_dir": "/tmp",
+        "type": "back"
+    }
+}
+ok: [s01vl9995272.fr.net.intra] => {
+    "microservice": {
+        "app_dir": "/opt/microservices",
+        "app_name": "service-registration-and-discovery-service",
+        "app_vesrion": "0.0.1-SNAPSHOT",
+        "artifact_id": "service-registration-and-discovery-service",
+        "config_file_name_tpl": "app.config.j2",
+        "config_sub_dir": "/config",
+        "data_sub_dir": "/data",
+        "dmp_sub_dir": "/dmp",
+        "group_id": "com.example",
+        "log_sub_dir": "/log",
+        "number": 1,
+        "pid_sub_dir": "/pid",
+        "ports": [],
+        "properties_file_name": "application.properties",
+        "properties_file_name_tpl": "app.properties.j2",
+        "service_param_one": "server",
+        "service_param_two": "otherServer",
+        "tmp_sub_dir": "/tmp",
+        "type": "back"
+    }
+}
+
+TASK [install-service : debug] *************************************************
+ok: [s01vl9995247.fr.net.intra] => {
+    "instance_name": "service-registration-and-discovery-service0"
+}
+ok: [s01vl9995271.fr.net.intra] => {
+    "instance_name": "service-registration-and-discovery-service0"
+}
+ok: [s01vl9995270.fr.net.intra] => {
+    "instance_name": "service-registration-and-discovery-service0"
+}
+ok: [s01vl9995272.fr.net.intra] => {
+    "instance_name": "service-registration-and-discovery-service0"
+}
+
+TASK [install-service : Call role-springboot for microservice service-registration-and-discovery-service by instance] ***
+included: /home/vagrant/manager/roles/install-service/tasks/call-springboot-role.yml for s01vl9995247.fr.net.intra, s01vl9995271.fr.net.intra, s01vl9995270.fr.net.intra, s01vl9995272.fr.net.intra => (item=0)
+
+TASK [install-service : set_fact] **********************************************
+ok: [s01vl9995247.fr.net.intra] => (item=app_dir)
+ok: [s01vl9995247.fr.net.intra] => (item=ports)
+ok: [s01vl9995247.fr.net.intra] => (item=config_file_name_tpl)
+ok: [s01vl9995247.fr.net.intra] => (item=properties_file_name_tpl)
+ok: [s01vl9995247.fr.net.intra] => (item=properties_file_name)
+ok: [s01vl9995247.fr.net.intra] => (item=dmp_sub_dir)
+ok: [s01vl9995247.fr.net.intra] => (item=tmp_sub_dir)
+ok: [s01vl9995247.fr.net.intra] => (item=pid_sub_dir)
+ok: [s01vl9995247.fr.net.intra] => (item=data_sub_dir)
+ok: [s01vl9995247.fr.net.intra] => (item=log_sub_dir)
+ok: [s01vl9995247.fr.net.intra] => (item=config_sub_dir)
+ok: [s01vl9995247.fr.net.intra] => (item=service_param_two)
+ok: [s01vl9995271.fr.net.intra] => (item=app_dir)
+ok: [s01vl9995247.fr.net.intra] => (item=service_param_one)
+ok: [s01vl9995247.fr.net.intra] => (item=app_name)
+ok: [s01vl9995271.fr.net.intra] => (item=ports)
+ok: [s01vl9995271.fr.net.intra] => (item=config_file_name_tpl)
+ok: [s01vl9995247.fr.net.intra] => (item=type)
+ok: [s01vl9995247.fr.net.intra] => (item=number)
+ok: [s01vl9995247.fr.net.intra] => (item=app_vesrion)
+ok: [s01vl9995270.fr.net.intra] => (item=app_dir)
+ok: [s01vl9995271.fr.net.intra] => (item=properties_file_name_tpl)
+ok: [s01vl9995270.fr.net.intra] => (item=ports)
+ok: [s01vl9995271.fr.net.intra] => (item=properties_file_name)
+ok: [s01vl9995247.fr.net.intra] => (item=artifact_id)
+ok: [s01vl9995272.fr.net.intra] => (item=app_dir)
+ok: [s01vl9995272.fr.net.intra] => (item=ports)
+ok: [s01vl9995270.fr.net.intra] => (item=config_file_name_tpl)
+ok: [s01vl9995271.fr.net.intra] => (item=dmp_sub_dir)
+ok: [s01vl9995270.fr.net.intra] => (item=properties_file_name_tpl)
+ok: [s01vl9995247.fr.net.intra] => (item=group_id)
+ok: [s01vl9995272.fr.net.intra] => (item=config_file_name_tpl)
+ok: [s01vl9995272.fr.net.intra] => (item=properties_file_name_tpl)
+ok: [s01vl9995271.fr.net.intra] => (item=tmp_sub_dir)
+ok: [s01vl9995270.fr.net.intra] => (item=properties_file_name)
+ok: [s01vl9995272.fr.net.intra] => (item=properties_file_name)
+ok: [s01vl9995272.fr.net.intra] => (item=dmp_sub_dir)
+ok: [s01vl9995272.fr.net.intra] => (item=tmp_sub_dir)
+ok: [s01vl9995270.fr.net.intra] => (item=dmp_sub_dir)
+ok: [s01vl9995271.fr.net.intra] => (item=pid_sub_dir)
+ok: [s01vl9995272.fr.net.intra] => (item=pid_sub_dir)
+ok: [s01vl9995270.fr.net.intra] => (item=tmp_sub_dir)
+ok: [s01vl9995270.fr.net.intra] => (item=pid_sub_dir)
+ok: [s01vl9995271.fr.net.intra] => (item=data_sub_dir)
+ok: [s01vl9995272.fr.net.intra] => (item=data_sub_dir)
+ok: [s01vl9995270.fr.net.intra] => (item=data_sub_dir)
+ok: [s01vl9995270.fr.net.intra] => (item=log_sub_dir)
+ok: [s01vl9995272.fr.net.intra] => (item=log_sub_dir)
+ok: [s01vl9995272.fr.net.intra] => (item=config_sub_dir)
+ok: [s01vl9995272.fr.net.intra] => (item=service_param_two)
+ok: [s01vl9995272.fr.net.intra] => (item=service_param_one)
+ok: [s01vl9995272.fr.net.intra] => (item=app_name)
+ok: [s01vl9995271.fr.net.intra] => (item=log_sub_dir)
+ok: [s01vl9995271.fr.net.intra] => (item=config_sub_dir)
+ok: [s01vl9995270.fr.net.intra] => (item=config_sub_dir)
+ok: [s01vl9995271.fr.net.intra] => (item=service_param_two)
+ok: [s01vl9995271.fr.net.intra] => (item=service_param_one)
+ok: [s01vl9995271.fr.net.intra] => (item=app_name)
+ok: [s01vl9995271.fr.net.intra] => (item=type)
+ok: [s01vl9995271.fr.net.intra] => (item=number)
+ok: [s01vl9995272.fr.net.intra] => (item=type)
+ok: [s01vl9995272.fr.net.intra] => (item=number)
+ok: [s01vl9995270.fr.net.intra] => (item=service_param_two)
+ok: [s01vl9995270.fr.net.intra] => (item=service_param_one)
+ok: [s01vl9995270.fr.net.intra] => (item=app_name)
+ok: [s01vl9995272.fr.net.intra] => (item=app_vesrion)
+ok: [s01vl9995272.fr.net.intra] => (item=artifact_id)
+ok: [s01vl9995272.fr.net.intra] => (item=group_id)
+ok: [s01vl9995271.fr.net.intra] => (item=app_vesrion)
+ok: [s01vl9995271.fr.net.intra] => (item=artifact_id)
+ok: [s01vl9995270.fr.net.intra] => (item=type)
+ok: [s01vl9995270.fr.net.intra] => (item=number)
+ok: [s01vl9995271.fr.net.intra] => (item=group_id)
+ok: [s01vl9995270.fr.net.intra] => (item=app_vesrion)
+ok: [s01vl9995270.fr.net.intra] => (item=artifact_id)
+ok: [s01vl9995270.fr.net.intra] => (item=group_id)
+
+TASK [install-service : debug] *************************************************
+ok: [s01vl9995247.fr.net.intra] => {
+    "instance_item": "0"
+}
+ok: [s01vl9995271.fr.net.intra] => {
+    "instance_item": "0"
+}
+ok: [s01vl9995270.fr.net.intra] => {
+    "instance_item": "0"
+}
+ok: [s01vl9995272.fr.net.intra] => {
+    "instance_item": "0"
+}
+
+TASK [install-service : set_fact] **********************************************
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [install-service : debug] *************************************************
+ok: [s01vl9995247.fr.net.intra] => {
+    "app_port": "8081"
+}
+ok: [s01vl9995271.fr.net.intra] => {
+    "app_port": "8081"
+}
+ok: [s01vl9995270.fr.net.intra] => {
+    "app_port": "8081"
+}
+ok: [s01vl9995272.fr.net.intra] => {
+    "app_port": "8081"
+}
+
+TASK [install-service : set_fact] **********************************************
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+
+TASK [include_role : role-springboot] ******************************************
+
+TASK [role-springboot : Prerequisites | Install python-lxml required by maven_artifact module on remote host] ***
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Prerequisites | Install python-lxml required by maven_artifact module on local host] ***
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Check vars | Assert sb_users_definition is defined] ****
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Check vars | Assert sb_user_groups_definitions is defined] ***
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Check vars | Assert sb_app_name is defined] ************
+ok: [s01vl9995247.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995271.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995270.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995272.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [role-springboot : Check vars | Assert sb_app_group_id is defined] ********
+ok: [s01vl9995247.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995271.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995270.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995272.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [role-springboot : Check vars | Assert sb_app_artifact_id is defined] *****
+ok: [s01vl9995247.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995271.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995270.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995272.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [role-springboot : Check vars | Assert sb_app_version is defined] *********
+ok: [s01vl9995247.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995271.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995270.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995272.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [role-springboot : Check vars | Assert sb_app_user is defined] ************
+ok: [s01vl9995247.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995271.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995270.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995272.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [role-springboot : Check vars | Assert sb_app_user_group is defined] ******
+ok: [s01vl9995247.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995271.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995270.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995272.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [role-springboot : Check vars | Assert sb_maven_repository_url or sb_app_artifact_file is defined] ***
+ok: [s01vl9995247.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995271.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995270.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995272.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [role-springboot : Set application destination folder] ********************
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Set artifact destination file] *************************
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot :  Service | Check if use systemd] ***********************
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : debug] *************************************************
+ok: [s01vl9995247.fr.net.intra] => {
+    "ansible_distribution_version": "20.04"
+}
+ok: [s01vl9995271.fr.net.intra] => {
+    "ansible_distribution_version": "20.04"
+}
+ok: [s01vl9995270.fr.net.intra] => {
+    "ansible_distribution_version": "20.04"
+}
+ok: [s01vl9995272.fr.net.intra] => {
+    "ansible_distribution_version": "20.04"
+}
+
+TASK [role-springboot :  Service | Check if use use_initd] *********************
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Install | Ensure app root folder exist] ****************
+ok: [s01vl9995247.fr.net.intra]
+changed: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Install | Ensure app version folder exist] *************
+ok: [s01vl9995247.fr.net.intra]
+changed: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+
+TASK [role-springboot : Install | Ensure PID_FOLDER exist (only for init.d)] ***
+skipping: [s01vl9995247.fr.net.intra] => (item=run) 
+skipping: [s01vl9995247.fr.net.intra] => (item=logs) 
+skipping: [s01vl9995271.fr.net.intra] => (item=run) 
+skipping: [s01vl9995271.fr.net.intra] => (item=logs) 
+skipping: [s01vl9995270.fr.net.intra] => (item=run) 
+skipping: [s01vl9995270.fr.net.intra] => (item=logs) 
+skipping: [s01vl9995272.fr.net.intra] => (item=run) 
+skipping: [s01vl9995272.fr.net.intra] => (item=logs) 
+
+TASK [role-springboot : debug] *************************************************
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : debug] *************************************************
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Install | Download maven artifact directly on remote host] ***
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Install | Download maven artifact on local host] *******
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Install | Set sb_app_artifact_file] ********************
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Install | Copy application artifact file] **************
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+ok: [s01vl9995247.fr.net.intra]
+changed: [s01vl9995271.fr.net.intra]
+
+TASK [role-springboot : Install | Ensure app artifact symlink exist] ***********
+ok: [s01vl9995247.fr.net.intra]
+changed: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+
+TASK [role-springboot : Install | Source application service conf] *************
+ok: [s01vl9995247.fr.net.intra]
+changed: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Install | Ensure application service conf symlink exist] ***
+ok: [s01vl9995247.fr.net.intra]
+changed: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : debug] *************************************************
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Install | Source application configuration file] *******
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+changed: [s01vl9995271.fr.net.intra]
+
+TASK [role-springboot : Install | Ensure application configuration symlink exist] ***
+ok: [s01vl9995247.fr.net.intra]
+changed: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Install | Source application logback file] *************
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Install | Ensure application logback symlink exist] ****
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Service | Create systemd service file] *****************
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+ok: [s01vl9995271.fr.net.intra]
+
+TASK [role-springboot : Service | Ensure app artifact initd symlink exist] *****
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Service | Ensure service-registration-and-discovery-service0 service is started] ***
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+changed: [s01vl9995271.fr.net.intra]
+
+TASK [role-springboot : Uninstall | Check if initd service Exists] *************
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Uninstall | Check if systemd service Exists] ***********
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Uninstall | Stop service-registration-and-discovery-service0 service] ***
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Uninstall | Remove systemd service file] ***************
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Uninstall | Remove initd service file] *****************
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Uninstall | Remove app artifact symlink] ***************
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Uninstall | Remove application service conf symlink] ***
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Uninstall | Remove application configuration symlink] ***
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Uninstall | Remove application logback  symlink] *******
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Uninstall | Remove SystemV run folder] *****************
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Uninstall | Remove app version folder] *****************
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : meta] **************************************************
+
+RUNNING HANDLER [role-springboot : Restart application] ************************
+changed: [s01vl9995271.fr.net.intra]
+
+TASK [role-springboot : Healthcheck | Wait for {{  sb_app_name }} to be healthy on URLs {{ sb_app_healthcheck_urls }}] ***
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Healthcheck | Wait for {{  sb_app_name }} to be healthy on TCP Ports {{ sb_app_healthcheck_ports }}] ***
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [include_role : role-springboot] ******************************************
+
+TASK [role-springboot : Prerequisites | Install python-lxml required by maven_artifact module on remote host] ***
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Prerequisites | Install python-lxml required by maven_artifact module on local host] ***
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Check vars | Assert sb_users_definition is defined] ****
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Check vars | Assert sb_user_groups_definitions is defined] ***
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Check vars | Assert sb_app_name is defined] ************
+ok: [s01vl9995247.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995271.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995270.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995272.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [role-springboot : Check vars | Assert sb_app_group_id is defined] ********
+ok: [s01vl9995247.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995271.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995270.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995272.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [role-springboot : Check vars | Assert sb_app_artifact_id is defined] *****
+ok: [s01vl9995247.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995271.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995270.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995272.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [role-springboot : Check vars | Assert sb_app_version is defined] *********
+ok: [s01vl9995247.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995271.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995270.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995272.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [role-springboot : Check vars | Assert sb_app_user is defined] ************
+ok: [s01vl9995247.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995271.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995270.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995272.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [role-springboot : Check vars | Assert sb_app_user_group is defined] ******
+ok: [s01vl9995247.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995271.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995270.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995272.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [role-springboot : Check vars | Assert sb_maven_repository_url or sb_app_artifact_file is defined] ***
+ok: [s01vl9995247.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995271.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995270.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [s01vl9995272.fr.net.intra] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [role-springboot : Set application destination folder] ********************
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Set artifact destination file] *************************
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot :  Service | Check if use systemd] ***********************
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : debug] *************************************************
+ok: [s01vl9995247.fr.net.intra] => {
+    "ansible_distribution_version": "20.04"
+}
+ok: [s01vl9995271.fr.net.intra] => {
+    "ansible_distribution_version": "20.04"
+}
+ok: [s01vl9995270.fr.net.intra] => {
+    "ansible_distribution_version": "20.04"
+}
+ok: [s01vl9995272.fr.net.intra] => {
+    "ansible_distribution_version": "20.04"
+}
+
+TASK [role-springboot :  Service | Check if use use_initd] *********************
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Install | Ensure app root folder exist] ****************
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995271.fr.net.intra]
+
+TASK [role-springboot : Install | Ensure app version folder exist] *************
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+ok: [s01vl9995271.fr.net.intra]
+
+TASK [role-springboot : Install | Ensure PID_FOLDER exist (only for init.d)] ***
+skipping: [s01vl9995247.fr.net.intra] => (item=run) 
+skipping: [s01vl9995247.fr.net.intra] => (item=logs) 
+skipping: [s01vl9995271.fr.net.intra] => (item=run) 
+skipping: [s01vl9995271.fr.net.intra] => (item=logs) 
+skipping: [s01vl9995270.fr.net.intra] => (item=run) 
+skipping: [s01vl9995270.fr.net.intra] => (item=logs) 
+skipping: [s01vl9995272.fr.net.intra] => (item=run) 
+skipping: [s01vl9995272.fr.net.intra] => (item=logs) 
+
+TASK [role-springboot : debug] *************************************************
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : debug] *************************************************
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Install | Download maven artifact directly on remote host] ***
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Install | Download maven artifact on local host] *******
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Install | Set sb_app_artifact_file] ********************
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Install | Copy application artifact file] **************
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995271.fr.net.intra]
+
+TASK [role-springboot : Install | Ensure app artifact symlink exist] ***********
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+ok: [s01vl9995271.fr.net.intra]
+
+TASK [role-springboot : Install | Source application service conf] *************
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+ok: [s01vl9995271.fr.net.intra]
+
+TASK [role-springboot : Install | Ensure application service conf symlink exist] ***
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995271.fr.net.intra]
+
+TASK [role-springboot : debug] *************************************************
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Install | Source application configuration file] *******
+ok: [s01vl9995272.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995271.fr.net.intra]
+ok: [s01vl9995247.fr.net.intra]
+
+TASK [role-springboot : Install | Ensure application configuration symlink exist] ***
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+ok: [s01vl9995271.fr.net.intra]
+
+TASK [role-springboot : Install | Source application logback file] *************
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Install | Ensure application logback symlink exist] ****
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Service | Create systemd service file] *****************
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995271.fr.net.intra]
+
+TASK [role-springboot : Service | Ensure app artifact initd symlink exist] *****
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Service | Ensure service-registration-and-discovery-service0 service is started] ***
+ok: [s01vl9995247.fr.net.intra]
+ok: [s01vl9995270.fr.net.intra]
+ok: [s01vl9995272.fr.net.intra]
+ok: [s01vl9995271.fr.net.intra]
+
+TASK [role-springboot : Uninstall | Check if initd service Exists] *************
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Uninstall | Check if systemd service Exists] ***********
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Uninstall | Stop service-registration-and-discovery-service0 service] ***
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Uninstall | Remove systemd service file] ***************
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Uninstall | Remove initd service file] *****************
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Uninstall | Remove app artifact symlink] ***************
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Uninstall | Remove application service conf symlink] ***
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Uninstall | Remove application configuration symlink] ***
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Uninstall | Remove application logback  symlink] *******
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Uninstall | Remove SystemV run folder] *****************
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Uninstall | Remove app version folder] *****************
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : meta] **************************************************
+
+TASK [role-springboot : Healthcheck | Wait for {{  sb_app_name }} to be healthy on URLs {{ sb_app_healthcheck_urls }}] ***
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+TASK [role-springboot : Healthcheck | Wait for {{  sb_app_name }} to be healthy on TCP Ports {{ sb_app_healthcheck_ports }}] ***
+skipping: [s01vl9995247.fr.net.intra]
+skipping: [s01vl9995271.fr.net.intra]
+skipping: [s01vl9995270.fr.net.intra]
+skipping: [s01vl9995272.fr.net.intra]
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=56   changed=33   unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+s01vl9995247.fr.net.intra  : ok=185  changed=4    unreachable=0    failed=0    skipped=163  rescued=0    ignored=0   
+s01vl9995270.fr.net.intra  : ok=185  changed=4    unreachable=0    failed=0    skipped=163  rescued=0    ignored=0   
+s01vl9995271.fr.net.intra  : ok=187  changed=44   unreachable=0    failed=0    skipped=163  rescued=0    ignored=0   
+s01vl9995272.fr.net.intra  : ok=185  changed=4    unreachable=0    failed=0    skipped=163  rescued=0    ignored=0   
+

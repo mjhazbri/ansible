@@ -1,12 +1,12 @@
 
 ---
 - name: concat
-  ansible.builtin.set_fact:
+  set_fact:
       user : "{{ username }}"
       group : "{{ groupname }}"
 
 - name: debug
-  ansible.builtin.debug:
+  debug:
       var: user,group 
 
 - name: "Check if use systemd"

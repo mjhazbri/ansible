@@ -1,16 +1,59 @@
 ---
-
-- hosts: all
-  gather_facts: false
-  become: true
-  pre_tasks:
-   - include_tasks: tasks/load-vars.yml
-  roles:
-    - init-group
-    - init-users
-    - init-packages
-
-- hosts: servers
+- hosts: localhost
   become: true
   roles:
-    - init-service
+    - init-config
+      
+#- hosts: all
+#  become: true
+#  roles:   
+#    - init-packages
+#    - init-group
+#    - init-users
+
+- hosts: microservice
+  become: true
+  roles:
+  - role: init-microserices
+    microservices: "{{ hostvars['localhost']._all_microservices }}"
+    git_config_dir: "{{ hostvars['localhost'].git_config_dir }}"
+
+#- hosts: all
+#  become: true
+#  pre_tasks:
+#   - include_tasks: tasks/load-shared-vars.yml
+
+#- hosts: all
+#  become: true
+#  pre_tasks:
+#   - include_tasks: tasks/load-git-vars.yml
+#   - include_tasks: tasks/load-config.yml
+
+#- hosts: all
+#  become: true
+#  roles:
+#    - init-packages
+#    - init-group
+#    - init-users
+
+#- hosts: servers
+#  become: true
+#  roles:
+#    - init-microserices
+
+
+
+#OLDOLD
+#- hosts: all
+#  gather_facts: true
+#  become: true
+#  roles:
+#    - init-packages
+#    - init-group
+#    - init-users
+#
+
+#- hosts: servers
+#  become: true
+#  roles:
+#    - init-service

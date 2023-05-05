@@ -1,0 +1,57 @@
+---
+- name: Set microservice {{ instance_name }} directory
+  set_fact:
+      config_dir: "{{ microservice['app_dir']}}/{{ instance_name }}{{ microservice['config_sub_dir']}}" 
+      log_dir: "{{ microservice['app_dir']}}/{{ instance_name }}{{ microservice['log_sub_dir']}}" 
+      data_dir: "{{ microservice['app_dir']}}/{{ instance_name }}{{ microservice['data_sub_dir']}}"
+      pid_dir: "{{ microservice['app_dir']}}/{{ instance_name }}{{ microservice['pid_sub_dir']}}"
+      tmp_dir:  "{{ microservice['app_dir']}}/{{ instance_name }}{{ microservice['tmp_sub_dir']}}"
+      dmp_dir: "{{ microservice['app_dir']}}/{{ instance_name }}{{ microservice['dmp_sub_dir']}}"      
+
+- name: Create config microservice directory {{ instance_name }}
+  file:
+    path: "{{ config_dir }}"
+    state: directory
+    owner: "{{ username }}"
+    group: "{{ groupname }}"
+    recurse: yes
+
+- name: Create log microservice directory {{ instance_name }}
+  file:
+    path: "{{ log_dir }}"
+    state: directory
+    owner: "{{ username }}"
+    group: "{{ groupname }}"
+    recurse: yes
+
+- name: Create data microservice directory {{ instance_name }}
+  file:
+    path: "{{ data_dir }}"
+    state: directory
+    owner: "{{ username }}"
+    group: "{{ groupname }}"
+    recurse: yes
+
+- name: Create pid microservice directory {{ instance_name }}
+  file:
+    path: "{{ pid_dir }}"
+    state: directory
+    owner: "{{ username }}"
+    group: "{{ groupname }}"
+    recurse: yes
+
+- name: Create tmp microservice directory {{ instance_name }}
+  file:
+    path: "{{ tmp_dir }}"
+    state: directory
+    owner: "{{ username }}"
+    group: "{{ groupname }}"
+    recurse: yes
+
+- name: Create dmp microservice directory {{ instance_name }}
+  file:
+    path: "{{ dmp_dir }}"
+    state: directory
+    owner: "{{ username }}"
+    group: "{{ groupname }}"
+    recurse: yes

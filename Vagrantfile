@@ -1,8 +1,5 @@
-# -*- mode: ruby -*-
-# vi: set ft=ruby :
-
 Vagrant.configure("2") do |config|
-  
+  config.vm.box = "ubuntu/focal64"
   config.vm.provider "virtualbox" do |rs|
     rs.memory = 2048
     rs.cpus = 2
@@ -10,54 +7,30 @@ Vagrant.configure("2") do |config|
 
   # Will not check for box updates during every startup.
   config.vm.box_check_update = false
-
-
   # Master node where ansible will be installed
-  config.vm.define "controller" do |controller|
-    controller.vm.box = "ubuntu/focal64"
-    controller.vm.hostname = "controller.mjhazbri"
-    controller.vm.network "private_network", ip: "192.168.56.3"
+  config.vm.define "controller.fr.net.intra" do |controller|
+    controller.vm.hostname = "controller.fr.net.intra"
+    controller.vm.network "private_network", ip: "192.168.56.10"
     controller.vm.provision "shell", path: "bootstrap.sh"
-    #controller.vm.provision "file", source: "key_gen.sh", destination: "/home/vagrant/"
     controller.vm.synced_folder "shared/manager", "/home/vagrant/manager", type: "virtualbox", create:true
     controller.vm.provider :virtualbox do |vb|
-      vb.name = "controller"
+      vb.name = "controller.fr.net.intra"
     end
   end
 
-  # Managed node 1.
-  config.vm.define "ui" do |ui|
-    ui.vm.box = "ubuntu/focal64"
-    ui.vm.hostname = "ui.mjhazbri"
-    ui.vm.network "private_network", ip: "192.168.56.4"
-    ui.vm.provision "shell", path: "bootstrap.sh"
-    ui.vm.synced_folder "shared/ui", "/home/vagrant/ui", type: "virtualbox", create:true
-    ui.vm.provider :virtualbox do |vb|
-      vb.name = "ui"
-    end
-  end
+  # MACHINE = ["s01vl9995163.fr.net.intra","s01vl9995246.fr.net.intra","s01vl9995267.fr.net.intra","s01vl9995268.fr.net.intra","s01vl9995277.fr.net.intra","s01vl9995279.fr.net.intra","s01vl9995282.fr.net.intra","s01vl9995284.fr.net.intra","s01vl9995285.fr.net.intra","s01vl9995264.fr.net.intra","s01vl9995266.fr.net.intra","s01vl9995269.fr.net.intra","s01vl9995278.fr.net.intra,","s01vl9995286.fr.net.intra","s01vl9995287.fr.net.intra","s01vl9995288.fr.net.intra"]
+  MACHINE = ["s01vl9995247.fr.net.intra","s01vl9995271.fr.net.intra","s01vl9995273.fr.net.intra","s01vl9995270.fr.net.intra","s01vl9995272.fr.net.intra"]
+  
+  N = 4
 
-  # Managed node 1.
-  config.vm.define "front" do |front|
-    front.vm.box = "ubuntu/focal64"
-    front.vm.hostname = "front.mjhazbri"
-    front.vm.network "private_network", ip: "192.168.56.5"
-    front.vm.provision "shell", path: "bootstrap.sh"
-    front.vm.synced_folder "shared/node", "/home/vagrant/node", type: "virtualbox", create:true
-    front.vm.provider :virtualbox do |vb|
-      vb.name = "front"
-    end
-  end
-
-  # Managed node 2.
-  config.vm.define "back" do |back|
-    back.vm.box = "ubuntu/focal64"
-    back.vm.hostname = "back.mjhazbri"
-    back.vm.network "private_network", ip: "192.168.56.6"
-    back.vm.provision "shell", path: "bootstrap.sh"
-    back.vm.synced_folder "shared/node", "/home/vagrant/node", type: "virtualbox", create:true
-    back.vm.provider :virtualbox do |vb|
-      vb.name = "back"
+  (0..N).each do |i|
+    config.vm.define "node-#{i}" do |node|
+      node.vm.hostname = MACHINE[i]
+      node.vm.network :private_network, ip: "192.168.56.#{11+i}"
+      node.vm.provision "shell", path: "bootstrap.sh"
+      node.vm.provider :virtualbox do |vb|
+        vb.name = MACHINE[i]
+      end
     end
   end
 

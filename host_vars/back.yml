@@ -1,0 +1,2 @@
+microsrvices_to_install: 
+  - service-registration-and-discovery-service

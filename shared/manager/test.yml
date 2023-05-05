@@ -1,0 +1,67 @@
+- name: replace the value of dictionary variable
+  hosts: localhost
+  gather_facts: no
+  vars:
+    uber_dict:
+      a_dict:
+        some_key: "abc"
+        another_key: "def"
+      b_dict:
+        some_key: "123"
+        another_key: "456"
+    fact_process:
+      cmd_check: ok
+      cmd_name: node1
+      cmd_status: error
+  tasks:
+
+
+
+    - name: Set a fact
+      ansible.builtin.set_fact:
+        a:
+          b:
+            b1:
+            1: 1
+            2: 2
+
+    - name: Update, add to list, add new key
+      ansible.utils.update_fact:
+        updates:
+        - path: a.b.b1.3
+          value: 3
+        - path: a.b.b2
+          value:
+          - 10
+          - 20
+          - 30
+      register: updated
+
+    - debug:
+        var: updated.a
+        
+    - name: Debug
+      debug: 
+        var: uber_dict
+
+    - name: change value
+      set_fact: "{ uber_dict['{{ item }}']['some_key'] : 'xyz' }"
+      with_items: "{{ uber_dict }}"
+
+    - name: Debug
+      debug: 
+        var: uber_dict
+    - name: print variables
+      debug:
+        var: fact_process
+
+    - name: change value
+      set_fact:
+        fact_process: "{{ fact_process | combine(new_item, recursive=true) }}"
+      vars:
+          new_item: { 'cmd_check':  'fail' }
+      with_dict: "{{ fact_process }}"
+
+    - name: print variables again
+      debug:
+        var: fact_process

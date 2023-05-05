@@ -1,0 +1,46 @@
+---
+- set_fact:
+      "{{param_item}}": "{{ microservice[param_item] }}"
+  with_items: "{{ microservice }}"
+  loop_control:
+    loop_var: param_item
+  
+- debug:
+    var: instance_item
+  when: (instance_item is defined) 
+
+- set_fact:
+      app_port: "{{ microservice.ports[instance_item | int] }}"
+  #when: microservice.ports is defined
+  when: (microservice.ports is defined) and (microservice.ports | type_debug == 'list') and (microservice.ports | length > 0)
+
+  
+- debug:
+    var: app_port
+  when: (app_port is defined) 
+
+- set_fact: 
+    sb_app_name: "{{ instance_name }}"
+    sb_app_group_id: "{{ microservice.group_id }}"
+    sb_app_artifact_id: "{{ microservice.artifact_id }}"
+    sb_app_version: "{{ microservice.app_vesrion }}"
+    sb_app_extension: jar
+    sb_local_maven_artifact_dowload: false
+    sb_app_artifact_file: "{{ playbook_dir}}/artifacts/{{ microservice.artifact_id }}-{{ microservice.app_vesrion }}.jar"
+    sb_app_config_file_template_path: "{{ git_config_dir }}/{{ microservice.app_name }}/{{ microservice.properties_file_name_tpl }}"
+    sb_applications_root_folder: "{{ microservice.app_dir}}/{{ instance_name }}"
+    sb_app_config_file_final_name: "{{ microservice.properties_file_name }}"
+    sb_app_create_users: false
+    sb_app_user: "{{ username }}"
+    sb_app_user_group: "{{ groupname }}"
+    #sb_app_java_opts_others: "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=6006"
+    #sb_app_healthcheck_urls:
+    #  - "http://localhost:8082/actuator/health"
+    #sb_app_healthcheck_ports:
+    #  - 8082
+    sb_app_env:
+      - name: LOGGING_PATH
+        value: "{{ microservice.app_dir}}/{{ instance_name }}/{{ instance_name | upper }}/logs"
+    
+- include_role: 
+    name: role-springboot

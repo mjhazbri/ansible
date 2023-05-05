@@ -1,0 +1,68 @@
+---
+- name: Set microservice {{ microservice_item }} directory
+  set_fact:
+      ms_dir: "{{ app_dir }}/{{ microservice_item }}" 
+      jar_src: "./{{ microservices[microservice]['app_name']}}-{{ microservices[microservice]['app_vesrion']}}.jar"
+      jar_target : "{{ app_dir }}/{{ microservice_item }}/{{ microservices[microservice]['app_name']}}-{{ microservices[microservice]['app_vesrion']}}.jar"
+      properties_src: "{{ git_config_dir }}/{{ microservices[microservice]['app_name']}}/{{ git_config_branch_name }}/{{ git_app_properties_name }}"
+      properties_target: "{{ app_dir }}/{{ microservice_item }}{{ microservices[microservice]['config_sub_dir']}}/{{ microservices[microservice]['properties_file_name']}}"
+      
+      service_src: "{{ git_config_dir }}/{{ microservices[microservice]['app_name']}}/{{ git_config_branch_name }}/{{ git_app_service_name }}"
+      service_target: "{{ app_dir }}/{{ microservice_item }}{{ microservices[microservice]['config_sub_dir']}}/{{ microservices[microservice]['app_name']}}.service"
+
+      config_src: "{{ git_config_dir }}/{{ microservices[microservice]['app_name']}}/{{ git_config_branch_name }}/{{ git_app_config_name }}"
+      config_target: "{{ app_dir }}/{{ microservice_item }}/{{ microservices[microservice]['app_name']}}-{{ microservices[microservice]['app_vesrion']}}.conf"
+      config_dir: "{{ app_dir }}/{{ microservice_item }}{{ microservices[microservice]['config_sub_dir']}}" 
+      log_dir: "{{ app_dir }}/{{ microservice_item }}{{ microservices[microservice]['log_sub_dir']}}" 
+      pid_dir: "{{ app_dir }}/{{ microservice_item }}{{ microservices[microservice]['pid_sub_dir']}}" 
+
+- name: Copy JarFile microservice {{ microservice_item }}
+  copy:
+    src: "{{ jar_src }}"
+    dest: "{{ jar_target }}"
+    owner: "{{ username }}"
+    group: "{{ groupname }}"
+    mode: "u+x"
+#  notify:
+#    - "Restart application"
+
+- name: Read microservice data {{ microservice_item }}
+  set_fact:
+      "{{param_item}}": "{{microservices[microservice][param_item]}}"
+  with_items: "{{ microservices[microservice]}}"
+  loop_control:
+    loop_var: param_item
+
+- name: Copy app properties microservice {{ microservice_item }} file
+  template:
+    src: "{{ properties_src }}"
+    dest: "{{ properties_target }}"
+    owner: "{{ username }}"
+    group: "{{ groupname }}"
+    mode: "u+x"
+
+- name: Copy app config microservice {{ microservice_item }} file
+  template:
+    src: "{{ config_src }}"
+    dest: "{{ config_target }}"
+    owner: "{{ username }}"
+    group: "{{ groupname }}"
+    mode: "u+x"
+
+- name: Copy app service microservice {{ microservice_item }} file
+  template:
+    src: "{{ service_src }}"
+    dest: "{{ service_target }}"
+    owner: "{{ username }}"
+    group: "{{ groupname }}"
+    mode: "u+x"
+
+
+- name: "Read app properties microservice {{ microservice_item }}"
+  shell: |
+    cat "{{ app_dir }}/{{ microservice_item }}{{ microservices[microservice]['config_sub_dir']}}/{{ microservices[microservice]['properties_file_name']}}"
+  register: file_content
+
+- name: "Print the file content to a console"
+  debug:
+    msg: "{{ file_content.stdout }}"

@@ -1,10 +1,10 @@
 [Unit]
-Description={{ springboot_application_name }}
+Description={{ app_name }}
 After=syslog.target
 
 [Service]
 User={{ username }}
-ExecStart="{{ springboot_deploy_folder }}/{{ springboot_application_name }}.jar"
+ExecStart="{{ springboot_deploy_folder }}/{{ app_name }}.jar"
 SuccessExitStatus=143
 
 [Install]

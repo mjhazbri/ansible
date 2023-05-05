@@ -1,0 +1,18 @@
+---
+- name: "Delete config folder if exists"
+  file:
+    path: "{{ git_config_dir }}"
+    state: absent
+
+# Check the config directory.
+- name: "Create config folder if not exists"
+  file:
+    path: "{{ git_config_dir }}"
+    state: directory
+
+# Clones the repository config.
+- name: Clone config repository
+  git:
+    repo: "{{ git_config_url }}"
+    dest: "{{ git_config_dir }}"
+    version: "{{ git_config_branch_name | default('dev') }}"

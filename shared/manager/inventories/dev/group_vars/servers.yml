@@ -1,7 +1,0 @@
-PACKAGES_SERVER:
-  - openjdk-11-jdk
-username: backuser
-uid: 1234
-userpasswd: $6$GOPKEGRyu3$FI6scdzk0dVdhlWfSN9lWAVuGJrHlf2GFt9/D0w.46pKubRqVxOq55Q2w6hgdoS84I5vc0a4VZqlqmCF8K.I.1
-groupname: backgroup
-gid: 1234

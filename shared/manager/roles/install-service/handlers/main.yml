@@ -1,0 +1,8 @@
+---
+- name: Restart application
+  systemd:
+    name: "{{ microservice_item }}"
+    enabled: yes
+    daemon-reload: yes
+    state: restarted
+  when: use_system_d

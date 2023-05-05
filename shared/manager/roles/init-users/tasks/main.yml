@@ -1,16 +1,13 @@
 ---
-- name: concat
-  ansible.builtin.set_fact:
+- name: set_fact
+  set_fact:
       user : "{{ username }}"
       uid : "{{ uid }}"
       group : "{{ groupname }}"
       passwd : "{{ userpasswd }}"
-- name: debug
-  ansible.builtin.debug:
-      var: uid,user,passwd,group 
 
 - name: Manage user
-  ansible.builtin.user:
+  user:
     name: "{{ username }}"
     uid: "{{ uid }}"
     password: "{{ userpasswd }}"

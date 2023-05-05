@@ -1,0 +1,101 @@
+---
+- include_vars:
+    file: "{{ git_config_dir }}/{{ _install_microservice.key }}/install-ms.yml"
+    name: install_ms
+
+- set_fact:
+      config_sub_dir: "{{ install_ms['config_sub_dir'] | default('/config') }}" 
+      log_sub_dir: "{{ install_ms['log_sub_dir'] | default('/log') }}" 
+      data_sub_dir: "{{ install_ms['data_sub_dir'] | default('/data') }}"
+      pid_sub_dir: "{{ install_ms['pid_sub_dir'] | default('/pid') }}"
+      tmp_sub_dir:  "{{ install_ms['tmp_sub_dir'] | default('/tmp') }}"
+      dmp_sub_dir: "{{ install_ms['dmp_sub_dir'] | default('/dmp') }}"  
+      properties_file_name: "{{ install_ms['properties_file_name'] | default('application.properties') }}"  
+      properties_file_name_tpl:  "{{ install_ms['properties_file_name_tpl'] | default('app.properties.j2') }}" 
+      config_file_name_tpl: "{{ install_ms['config_file_name_tpl'] | default('app.config.j2') }}" 
+      ports: "{{ install_ms['ports'] | default('') }}"
+
+- lineinfile:
+    path: "{{ git_config_dir }}/config.yml"
+    insertafter: "{{ _install_microservice.key }}*:"
+    line: "  .{{ _install_microservice.key }}.config_sub_dir: {{ install_ms['config_sub_dir'] | default('/config') }}"
+    state: present  
+    firstmatch: yes
+  register: updated
+
+- lineinfile:
+    path: "{{ git_config_dir }}/config.yml"
+    insertafter: "{{ _install_microservice.key }}*:"
+    line: "  .{{ _install_microservice.key }}.log_sub_dir: {{ log_sub_dir }}"
+    state: present  
+    firstmatch: yes
+  register: updated
+
+- lineinfile:
+    path: "{{ git_config_dir }}/config.yml"
+    insertafter: "{{ _install_microservice.key }}*:*"
+    line: "  .{{ _install_microservice.key }}.data_sub_dir: {{ data_sub_dir }}"
+    state: present  
+    firstmatch: yes
+  register: updated
+
+- lineinfile:
+    path: "{{ git_config_dir }}/config.yml"
+    insertafter: "{{ _install_microservice.key }}*:*"
+    line: "  .{{ _install_microservice.key }}.pid_sub_dir: {{ pid_sub_dir }}"
+    state: present  
+    firstmatch: yes
+  register: updated
+
+- lineinfile:
+    path: "{{ git_config_dir }}/config.yml"
+    insertafter: "{{ _install_microservice.key }}*:"
+    line: "  .{{ _install_microservice.key }}.tmp_sub_dir: {{ tmp_sub_dir }}"
+    state: present  
+    firstmatch: yes
+  register: updated
+
+- lineinfile:
+    path: "{{ git_config_dir }}/config.yml"
+    insertafter: "{{ _install_microservice.key }}*:"
+    line: "  .{{ _install_microservice.key }}.dmp_sub_dir: {{ dmp_sub_dir }}"
+    state: present  
+    firstmatch: yes
+  register: updated
+
+- lineinfile:
+    path: "{{ git_config_dir }}/config.yml"
+    insertafter: "{{ _install_microservice.key }}*:"
+    line: "  .{{ _install_microservice.key }}.properties_file_name: {{ properties_file_name }}"
+    state: present  
+    firstmatch: yes
+  register: updated
+
+- lineinfile:
+    path: "{{ git_config_dir }}/config.yml"
+    insertafter: "{{ _install_microservice.key }}*:"
+    line: "  .{{ _install_microservice.key }}.properties_file_name_tpl: {{ properties_file_name_tpl }}"
+    state: present  
+    firstmatch: yes
+  register: updated
+
+- lineinfile:
+    path: "{{ git_config_dir }}/config.yml"
+    insertafter: "{{ _install_microservice.key }}*:"
+    line: "  .{{ _install_microservice.key }}.config_file_name_tpl: {{ config_file_name_tpl }}"
+    state: present  
+    firstmatch: yes
+  register: updated
+
+- lineinfile:
+    path: "{{ git_config_dir }}/config.yml"
+    insertafter: "{{ _install_microservice.key }}*:"
+    line: "  .{{ _install_microservice.key }}.ports: {{ ports }}"
+    state: present  
+    firstmatch: yes
+  register: updated
+
+- replace:
+    path: "{{ git_config_dir }}/config.yml"
+    regexp: ".{{ _install_microservice.key }}."
+    replace: ''

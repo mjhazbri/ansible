@@ -1,0 +1,8 @@
+---
+- name: Create microservice directories {{ microservice.app_name }}  on  {{ microservice.app_dir }}
+  include_tasks: create_dir.yml
+  with_sequence: start=0 end="{{ microservice['number'] | int - 1}}"
+  vars:
+    instance_name: "{{ microservice.app_name }}{{ outer_item }}"
+  loop_control:
+    loop_var: outer_item 

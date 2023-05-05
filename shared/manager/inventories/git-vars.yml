@@ -1,0 +1,3 @@
+git_config_url: https://jalel.hazbri:jalel1985@gitlab.com/mjhazbri/vagrant-ansible-config.git
+git_config_dir: "{{ playbook_dir}}/config"
+git_config_branch_name: dev

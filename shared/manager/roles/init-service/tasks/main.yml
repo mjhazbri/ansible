@@ -1,20 +1,20 @@
 ---
 - name: concat
-  ansible.builtin.set_fact:
-      appName : "{{ springboot_application_name | default('') }}"
-      srcFile : "{{ springboot_src_file | default('') }}"
-      deployFolder : "{{ springboot_deploy_folder | default('') }}"
-      propertiesTpl : "{{ springboot_propertyfile_template | default('') }}"
-      confTpl : "{{ springboot_configuration_template | default('') }}"
+  set_fact:
+    appName : "{{ app_name | default('') }}"
+    srcFile : "{{ springboot_src_file | default('') }}"
+    deployFolder : "{{ springboot_deploy_folder | default('') }}"
+    propertiesTpl : "{{ springboot_propertyfile_template | default('') }}"
+    confTpl : "{{ springboot_configuration_template | default('') }}"
 
 - name: debug
-  ansible.builtin.debug:
-      var: appName,srcFile,deployFolder,propertiesTpl,confTpl 
+  debug:
+    var: appName,srcFile,deployFolder,propertiesTpl,confTpl 
 
-- name: "Check for required inventory springboot_application_name variable"
+- name: "Check for required inventory app_name variable"
   fail:
-    msg: springboot_application_name variable is required and should be defined in you inventory
-  when: not springboot_application_name
+    msg: app_name variable is required and should be defined in you inventory
+  when: not app_name
 
 - name: "Check for required inventory springboot_src_file or springboot_src_url variable"
   fail:
@@ -27,12 +27,11 @@
     state: directory
     owner: "{{ username }}"
     group: "{{ groupname }}"
-  notify: me
 
 - name: "Copy jar application"
   copy:
     src: "{{ springboot_src_file }}"
-    dest: "{{ springboot_deploy_folder }}/{{ springboot_application_name }}.jar"
+    dest: "{{ springboot_deploy_folder }}/{{ app_name }}.jar"
     owner: "{{ username }}"
     group: "{{ groupname }}"
     mode: "u+x"
@@ -43,7 +42,7 @@
 - name: "Download springboot application"
   get_url:
     url: "{{ springboot_src_url }}"
-    dest: "{{ springboot_deploy_folder }}/{{ springboot_application_name }}.jar"
+    dest: "{{ springboot_deploy_folder }}/{{ app_name }}.jar"
     owner: "{{ groupname }}"
     group: "{{ groupname }}"
     mode: "u+x"

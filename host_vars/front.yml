@@ -1,0 +1,10 @@
+microsrvices_to_install: 
+  - service-registration-and-discovery-client
+  
+app_name: service-registration-and-discovery-client
+springboot_src_file: ./{{ app_name }}.jar
+springboot_deploy_folder: /opt/springboot_application
+
+# springboot_src_url: None
+# springboot_propertyfile_template: None
+# springboot_configuration_template: None 

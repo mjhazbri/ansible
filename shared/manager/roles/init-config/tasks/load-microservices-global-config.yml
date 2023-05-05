@@ -1,0 +1,11 @@
+---
+- include_vars:
+    file: "{{ git_config_dir }}/config.yml"
+    name: microservices
+
+- include_tasks: load-microservice-global-config.yml
+  loop: "{{ lookup('ansible.builtin.dict', microservices) }}"
+  vars:
+    _global_config_microservice: "{{ g_config_item }}" 
+  loop_control:
+    loop_var: g_config_item

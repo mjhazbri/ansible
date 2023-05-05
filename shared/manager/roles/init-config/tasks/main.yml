@@ -1,0 +1,13 @@
+---
+- block:
+#Put Here all vars for microservices
+    - include_tasks: tasks/load-git-vars.yml
+    - include_tasks: tasks/clone-git-config.yml
+    - include_tasks: tasks/load-microservices-config.yml
+    - include_tasks: tasks/load-microservices-global-config.yml
+
+
+#This line should be in last of script to load all data for microservices in a single var _all_microservices
+- include_vars:
+    file: "{{ git_config_dir }}/config.yml"
+    name: _all_microservices

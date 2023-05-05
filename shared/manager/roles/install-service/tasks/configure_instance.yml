@@ -1,0 +1,5 @@
+---
+- debug:
+    var: microservice
+- debug:
+    var: instance_name

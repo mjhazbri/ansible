@@ -1,0 +1,22 @@
+---
+- include_vars:
+    file: "{{ git_config_dir }}/global-config.yml"
+    name: global_config
+
+- lineinfile:
+    path: "{{ git_config_dir }}/config.yml"
+    insertafter: "{{ _global_config_microservice.key }}*:"
+    line: "  .{{ _global_config_microservice.key }}.{{global_config_item}}: {{ global_config[global_config_item] }}"
+    state: present  
+    firstmatch: yes
+  with_items : "{{ global_config }}"
+  loop_control:
+    loop_var: global_config_item
+
+- replace:
+    path: "{{ git_config_dir }}/config.yml"
+    regexp: ".{{ _global_config_microservice.key }}."
+    replace: ''
+
+
+    

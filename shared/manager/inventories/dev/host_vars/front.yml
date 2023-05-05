@@ -1,7 +1,0 @@
-springboot_application_name: service-registration-and-discovery-client
-springboot_src_file: ./{{ springboot_application_name }}.jar
-springboot_deploy_folder: /opt/springboot_application
-
-# springboot_src_url: None
-# springboot_propertyfile_template: None
-# springboot_configuration_template: None 

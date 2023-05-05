@@ -1,0 +1,32 @@
+- name: replace the value of dictionary variable
+  hosts: localhost
+  gather_facts: no
+  vars:
+    users:
+      alice:
+        name: Alice Appleworth
+        telephone: 123-456-7890
+        ports: [8080] 
+      bob:
+        name: Bob Bananarama
+        telephone: 987-654-3210
+        ports: [8080,8081] 
+  tasks:
+  - name: show dictionary
+    debug: 
+      msg: "{{item.key}}: {{item.value}}"
+    with_dict: {a: 1, b: 2, c: 3}
+  
+  - name: Print phone records
+    debug:
+      msg: "User {{ item.key }} is {{ item.value.name }} ({{ item.value.telephone }})"
+    loop: "{{ lookup('dict', users) }}"
+
+  - set_fact:
+      itr: "0"
+    loop: "{{ lookup('dict', users) }}"
+
+
+  - name: TEST
+    debug:
+      msg: '{{ users.alice.ports[itr | int] }}'

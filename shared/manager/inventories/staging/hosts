@@ -1,5 +1,5 @@
-[manager]
-controller
+#[manager]
+#controller
 
 [web]
 ui

@@ -1,9 +1,0 @@
-[manager]
-controller
-
-[web]
-ui
-
-[servers]
-front
-back

@@ -1,0 +1,60 @@
+---
+#- debug:
+#    var: microservices
+
+- include_role: 
+    name: install-dir
+  loop: "{{ lookup('ansible.builtin.dict', microservices) }}"
+  vars:
+    microservice: "{{ msinstall_item.value }}" 
+  loop_control:
+    loop_var: msinstall_item
+
+- include_role: 
+    name: install-service
+  loop: "{{ lookup('ansible.builtin.dict', microservices) }}"
+  vars:
+    microservice: "{{ msinstall_item.value }}" 
+  loop_control:
+    loop_var: msinstall_item
+
+
+#- include_tasks: load-microservice-install.yml
+#  loop: "{{ lookup('ansible.builtin.dict', microservices) }}"
+#  vars:
+#    _install_microservice: "{{ msinstall_item }}" 
+#  loop_control:
+#    loop_var: msinstall_item
+#
+#- name: Call install-dir
+#  include_role:
+#    name: install-dir
+#  loop: "{{ microsrvices_to_install }}"
+#  vars:
+#    microservice: "{{ item }}"    
+#
+#- name: Call install-service
+#  include_role:
+#    name: install-service
+#  loop: "{{ microsrvices_to_install }}"
+#  vars:
+#    microservice: "{{ item }}"    
+
+
+
+
+
+
+#- name: Call install-service
+# # include_role:
+#    name: install-dir
+#  loop: "{{ lookup('ansible.builtin.dict', microservices) }}"
+#  vars:
+#    microservice: "{{ item }}"
+#
+#- name: Call install-service
+# # include_role:
+# #   name: install-service
+#  loop: "{{ lookup('ansible.builtin.dict', microservices) }}"
+#  vars:
+#    microservice: "{{ item }}"
