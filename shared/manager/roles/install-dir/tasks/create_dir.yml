@@ -3,10 +3,13 @@
   set_fact:
       config_dir: "{{ microservice['app_dir']}}/{{ instance_name }}{{ microservice['config_sub_dir']}}" 
       log_dir: "{{ microservice['app_dir']}}/{{ instance_name }}{{ microservice['log_sub_dir']}}" 
+      log_dir_symlink: "{{ microservice['app_dir_log']}}/{{ instance_name }}{{ microservice['log_sub_dir']}}" 
       data_dir: "{{ microservice['app_dir']}}/{{ instance_name }}{{ microservice['data_sub_dir']}}"
+      data_dir_symlink: "{{ microservice['app_dir_data']}}/{{ instance_name }}{{ microservice['data_sub_dir']}}"
       pid_dir: "{{ microservice['app_dir']}}/{{ instance_name }}{{ microservice['pid_sub_dir']}}"
       tmp_dir:  "{{ microservice['app_dir']}}/{{ instance_name }}{{ microservice['tmp_sub_dir']}}"
-      dmp_dir: "{{ microservice['app_dir']}}/{{ instance_name }}{{ microservice['dmp_sub_dir']}}"      
+      dmp_dir: "{{ microservice['app_dir']}}/{{ instance_name }}{{ microservice['dmp_sub_dir']}}"   
+      delivery_dir: "{{ microservice['app_dir_delivery']}}/{{ instance_name }}"    
 
 - name: Create config microservice directory {{ instance_name }}
   file:
@@ -18,19 +21,35 @@
 
 - name: Create log microservice directory {{ instance_name }}
   file:
-    path: "{{ log_dir }}"
+    path: "{{ log_dir_symlink }}"
+    state: directory
+    owner: "{{ username }}"
+    group: "{{ groupname }}"
+    recurse: yes    
+
+- name: Create log symlink to microservice directory {{ instance_name }}
+  file:
+    src: "{{ log_dir_symlink }}"
+    dest: "{{ log_dir }}"
+    state: link
+    owner: "{{ username }}"
+    group: "{{ groupname }}"
+
+- name: Create data microservice directory {{ instance_name }}
+  file:
+    path: "{{ data_dir_symlink }}"
     state: directory
     owner: "{{ username }}"
     group: "{{ groupname }}"
     recurse: yes
 
-- name: Create data microservice directory {{ instance_name }}
+- name: Create data symlink to microservice directory {{ instance_name }}
   file:
-    path: "{{ data_dir }}"
-    state: directory
+    src: "{{ data_dir_symlink }}"
+    dest: "{{ data_dir }}"
+    state: link
     owner: "{{ username }}"
     group: "{{ groupname }}"
-    recurse: yes
 
 - name: Create pid microservice directory {{ instance_name }}
   file:
@@ -51,6 +70,14 @@
 - name: Create dmp microservice directory {{ instance_name }}
   file:
     path: "{{ dmp_dir }}"
+    state: directory
+    owner: "{{ username }}"
+    group: "{{ groupname }}"
+    recurse: yes
+
+- name: Create delivery microservice directory {{ instance_name }}
+  file:
+    path: "{{ delivery_dir }}"
     state: directory
     owner: "{{ username }}"
     group: "{{ groupname }}"

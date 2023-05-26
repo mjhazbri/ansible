@@ -2,8 +2,8 @@
 - name: Set microservice {{ microservice_item }} directory
   set_fact:
       ms_dir: "{{ app_dir }}/{{ microservice_item }}" 
-      jar_src: "./{{ microservices[microservice]['app_name']}}-{{ microservices[microservice]['app_vesrion']}}.jar"
-      jar_target : "{{ app_dir }}/{{ microservice_item }}/{{ microservices[microservice]['app_name']}}-{{ microservices[microservice]['app_vesrion']}}.jar"
+      jar_src: "./{{ microservices[microservice]['app_name']}}-{{ microservices[microservice]['app_version']}}.jar"
+      jar_target : "{{ app_dir }}/{{ microservice_item }}/{{ microservices[microservice]['app_name']}}-{{ microservices[microservice]['app_version']}}.jar"
       properties_src: "{{ git_config_dir }}/{{ microservices[microservice]['app_name']}}/{{ git_config_branch_name }}/{{ git_app_properties_name }}"
       properties_target: "{{ app_dir }}/{{ microservice_item }}{{ microservices[microservice]['config_sub_dir']}}/{{ microservices[microservice]['properties_file_name']}}"
       
@@ -11,7 +11,7 @@
       service_target: "{{ app_dir }}/{{ microservice_item }}{{ microservices[microservice]['config_sub_dir']}}/{{ microservices[microservice]['app_name']}}.service"
 
       config_src: "{{ git_config_dir }}/{{ microservices[microservice]['app_name']}}/{{ git_config_branch_name }}/{{ git_app_config_name }}"
-      config_target: "{{ app_dir }}/{{ microservice_item }}/{{ microservices[microservice]['app_name']}}-{{ microservices[microservice]['app_vesrion']}}.conf"
+      config_target: "{{ app_dir }}/{{ microservice_item }}/{{ microservices[microservice]['app_name']}}-{{ microservices[microservice]['app_version']}}.conf"
       config_dir: "{{ app_dir }}/{{ microservice_item }}{{ microservices[microservice]['config_sub_dir']}}" 
       log_dir: "{{ app_dir }}/{{ microservice_item }}{{ microservices[microservice]['log_sub_dir']}}" 
       pid_dir: "{{ app_dir }}/{{ microservice_item }}{{ microservices[microservice]['pid_sub_dir']}}" 
