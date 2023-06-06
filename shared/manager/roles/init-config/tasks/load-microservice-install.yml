@@ -12,7 +12,6 @@
       dmp_sub_dir: "{{ install_ms['dmp_sub_dir'] | default('/dmp') }}"  
       properties_file_name: "{{ install_ms['properties_file_name'] | default('application.properties') }}"  
       properties_file_name_tpl:  "{{ install_ms['properties_file_name_tpl'] | default('app.properties.j2') }}" 
-      config_file_name_tpl: "{{ install_ms['config_file_name_tpl'] | default('app.config.j2') }}" 
       ports: "{{ install_ms['ports'] | default('') }}"
 
 - lineinfile:
@@ -75,14 +74,6 @@
     path: "{{ git_config_dir }}/config.yml"
     insertafter: "{{ _install_microservice.key }}*:"
     line: "  .{{ _install_microservice.key }}.properties_file_name_tpl: {{ properties_file_name_tpl }}"
-    state: present  
-    firstmatch: yes
-  register: updated
-
-- lineinfile:
-    path: "{{ git_config_dir }}/config.yml"
-    insertafter: "{{ _install_microservice.key }}*:"
-    line: "  .{{ _install_microservice.key }}.config_file_name_tpl: {{ config_file_name_tpl }}"
     state: present  
     firstmatch: yes
   register: updated

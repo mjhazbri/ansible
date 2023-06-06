@@ -13,11 +13,17 @@
       app_port: "{{ microservice.ports[instance_item | int] }}"
   #when: microservice.ports is defined
   when: (microservice.ports is defined) and (microservice.ports | type_debug == 'list') and (microservice.ports | length > 0)
-
   
 - debug:
     var: app_port
   when: (app_port is defined) 
+
+- set_fact:
+      app_name: "{{ instance_name }}"
+
+- debug:
+    var: app_name
+  when: (app_name is defined) 
 
 - set_fact: 
     sb_app_name: "{{ instance_name }}"

@@ -1,0 +1,4 @@
+PACKAGES_GROUP:
+  - nginx
+  - net-tools
+

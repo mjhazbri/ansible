@@ -39,22 +39,27 @@
 
 - name: "Uninstall | Remove app artifact symlink"
   file:
-    path: "{{ sb_applications_root_folder }}/{{ sb_app_name | upper }}/{{ sb_app_name | upper }}"
+    path: "{{ sb_applications_root_folder }}"
+    #path: "{{ sb_applications_root_folder }}/{{ sb_app_name | upper }}/{{ sb_app_name | upper }}"
     state: absent
 
 - name: "Uninstall | Remove application service conf symlink"
   file:
-    path: "{{ sb_applications_root_folder }}/{{ sb_app_name | upper }}/{{ sb_app_name }}.conf"
+
+    dest: "{{ sb_applications_root_folder }}/{{ sb_app_artifact_id }}-{{ sb_app_version }}.conf"
+    #path: "{{ sb_applications_root_folder }}/{{ sb_app_name | upper }}/{{ sb_app_name }}.conf"
     state: absent
 
 - name: "Uninstall | Remove application configuration symlink"
   file:
-    path: "{{ sb_applications_root_folder }}/{{ sb_app_name | upper }}/application.yml"
+    #path: "{{ sb_applications_root_folder }}/{{ sb_app_name | upper }}/application.yml"
+    path: "{{ sb_applications_root_folder }}/{{ sb_app_config_file_final_name }}"
     state: absent
 
 - name: "Uninstall | Remove application logback  symlink"
   file:
-    path: "{{ sb_applications_root_folder }}/{{ sb_app_name | upper }}/logback-spring.xml"
+    path: "{{ sb_applications_root_folder }}/logback-spring.xml"
+    #path: "{{ sb_applications_root_folder }}/{{ sb_app_name | upper }}/logback-spring.xml"
     state: absent
   when: >
         sb_app_logback_file_template_path is defined
@@ -68,5 +73,6 @@
 
 - name: "Uninstall | Remove app version folder"
   file:
-    path: "{{ sb_applications_root_folder }}/{{ sb_app_name | upper }}/{{ sb_app_version }}"
+    path: "{{ sb_applications_root_folder }}"
+    #path: "{{ sb_applications_root_folder }}/{{ sb_app_name | upper }}/{{ sb_app_version }}"
     state: absent

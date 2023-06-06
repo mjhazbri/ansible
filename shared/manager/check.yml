@@ -1,0 +1,12 @@
+---
+- hosts: microservice
+  become: false
+  gather_facts: true
+  gather_subset:
+    - "min"
+
+  tasks:
+
+  - name: Show Facts
+    debug:
+      msg: "{{ ansible_facts.service_mgr }}"

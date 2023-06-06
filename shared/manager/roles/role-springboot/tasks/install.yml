@@ -2,7 +2,8 @@
 
 - name: "Install | Ensure app root folder exist"
   file:
-    path: "{{ sb_applications_root_folder }}/{{ sb_app_name | upper }}"
+    path: "{{ sb_applications_root_folder }}"
+    #path: "{{ sb_applications_root_folder }}/{{ sb_app_name | upper }}"
     state: directory
     owner: "{{ sb_app_user }}"
     group: "{{ sb_app_user_group }}"
@@ -10,22 +11,26 @@
 
 - name: "Install | Ensure app version folder exist"
   file:
-    path: "{{ sb_applications_root_folder }}/{{ sb_app_name | upper }}/{{ sb_app_version }}"
+    path: "{{ sb_applications_root_folder }}"
+    #path: "{{ sb_applications_root_folder }}/{{ sb_app_name | upper }}/{{ sb_app_version }}"
     state: directory
     owner: "{{ sb_app_user }}"
     group: "{{ sb_app_user_group }}"
 
 - name: "Install | Ensure PID_FOLDER exist (only for init.d)"
   file:
-    path: "{{ sb_applications_root_folder }}/{{ sb_app_name | upper }}/{{ item }}"
+    path: "{{ sb_applications_root_folder }}/{{ item }}"
+    #path: "{{ sb_applications_root_folder }}/{{ sb_app_name | upper }}/{{ item }}"
     state: directory
     owner: "{{ sb_app_user }}"
     group: "{{ sb_app_user_group }}"
     mode: 0755
   when: not use_system_d
   with_items:
-    - run
-    - logs
+    - pid
+    - log
+    #- run
+    #- logs
 
 - debug: var=sb_app_artifact_file verbosity=1
 
@@ -104,7 +109,7 @@
 - name: "Install | Source application service conf"
   template:
     src: app.conf.j2
-    dest: "{{ sb_app_artifact_destination_folder }}/{{ sb_app_name }}-{{ sb_app_version }}.conf"
+    dest: "{{ sb_app_artifact_destination_folder }}/{{ sb_app_artifact_id }}-{{ sb_app_version }}.conf"
     mode: 0400
     owner: "{{ sb_app_user }}"
     group: "{{ sb_app_user_group }}"

@@ -2,6 +2,7 @@ PACKAGES_COMMON:
   - whois
   - python3
   - tree
+  - openjdk-8-jdk
 
 username: aUser
 uid: 1234
